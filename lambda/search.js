@@ -1,5 +1,5 @@
 // For more info, check https://www.netlify.com/docs/functions/#javascript-lambda-functions
-import { Link, graphql, useStaticQuery } from 'gatsby'
+const { Link, graphql, useStaticQuery } = require('gatsby');
 
 
 
