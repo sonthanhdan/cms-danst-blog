@@ -25,15 +25,34 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{description}</p>
+            <div className="row post-top-meta">
+              <div className="author-avatar">
+                <a href="author.html">
+                  <img className="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sal" width="48" height="48"/>
+                </a>
+              </div>
+              <div className="author-info">
+                <div className="author-description">
+                  <a className="link-dark" href="author.html">Dan St</a>
+                  <a href="#" className="author-major">Developer</a>
+                </div>
+                {/* <span className="author-major"></span> */}
+                <div className="flex-post-date">
+                  <span className="post-date">22 July 2017</span>
+                  <span className="dot">·</span>
+                  <span className="post-read">6 min read</span>
+                </div>
+              </div>
+            </div>
+            <p className="post-description">{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
                 <ul className="taglist">
                   {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                    <li key={tag + `tag`} >
+                      <Link className="tag-word" to={`/tags/${kebabCase(tag)}/`} >{tag}</Link>
                     </li>
                   ))}
                 </ul>

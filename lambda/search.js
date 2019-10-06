@@ -1,11 +1,27 @@
 // For more info, check https://www.netlify.com/docs/functions/#javascript-lambda-functions
+import { Link, graphql, useStaticQuery } from 'gatsby'
+
+
+
 module.exports.handler = async function(event, context) {
   console.log("queryStringParameters", event.queryStringParameters)
+    const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  
+  
   return {
     // return null to show no errors
     statusCode: 200, // http status code
     body: JSON.stringify({
-      msg: "Hello, World! This is better " + Math.round(Math.random() * 10)
+      msg: "Hello, World! This is better " + Math.round(Math.random() * 10),
+      data: data
     })
   }
 }
