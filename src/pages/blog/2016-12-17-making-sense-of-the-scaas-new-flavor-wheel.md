@@ -11,6 +11,9 @@ featuredimage: /img/flavor_wheel.jpg
 tags:
   - flavor
   - tasting
+  - test tag
+  - programming
+  - javascript
 ---
 ![flavor wheel](/img/flavor_wheel.jpg)
 
