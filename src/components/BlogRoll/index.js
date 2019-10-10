@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import PreviewCompatibleImage from '../PreviewCompatibleImage'
+import './styles.sass'
 
 class BlogRoll extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class BlogRoll extends React.Component {
           posts.map(({ node: post }) => (
             <div className="is-parent column is-6" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
+                className={`blog-list-item tile is-child ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
@@ -24,7 +25,7 @@ class BlogRoll extends React.Component {
                       <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.title}`,
+                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
                         }}
                       />
                     </div>
