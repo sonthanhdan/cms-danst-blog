@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Hi. welcome to my blog
-image: /img/home-jumbotron.jpg
+image: /img/emile-perron-xrvdyzrgdw4-unsplash.jpg
 heading: Let a cup coffee
 subheading: Read and enjoying a cup of coffee
 mainpitch:
