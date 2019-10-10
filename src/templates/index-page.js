@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import RecentPost from '../components/RecentPost'
 
 export const IndexPageTemplate = ({
   image,
@@ -16,7 +17,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <div
+    {/* <div
       className="full-width-image margin-top-0"
       style={{
         backgroundImage: `url(${
@@ -63,14 +64,14 @@ export const IndexPageTemplate = ({
           {subheading}
         </h3>
       </div>
-    </div>
+    </div> */}
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
+                {/* <div className="content">
                   <div className="tile">
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
@@ -93,12 +94,20 @@ export const IndexPageTemplate = ({
                       See all products
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    Latest storie
                   </h3>
                   <BlogRoll />
+                
+                  
+                  <h3 className="has-text-weight-semibold is-size-2">
+                    Recent post
+                  </h3>
+                  <RecentPost/>
+                  <BlogRoll />
+
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more

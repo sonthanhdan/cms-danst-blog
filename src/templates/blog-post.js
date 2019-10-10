@@ -19,6 +19,14 @@ export const BlogPostTemplate = ({
   return (
     <section className="section">
       {helmet || ''}
+      <nav className="breadcrumb is-centered is-small" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="#">Bulma</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Components</a></li>
+          <li className="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+        </ul>
+      </nav>
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -49,18 +57,46 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
-                <ul className="taglist">
+                <div className="tags">
                   {tags.map(tag => (
-                    <li key={tag + `tag`} >
-                      <Link className="tag-word" to={`/tags/${kebabCase(tag)}/`} >{tag}</Link>
-                    </li>
+                      <span className="tag has-text-black" key={tag + `tag`}>
+                         <Link className="tag-word" to={`/tags/${kebabCase(tag)}/`} >
+                         {tag}
+                         </Link>
+                      </span>
                   ))}
-                </ul>
+                  
+                </div>
+               
               </div>
             ) : null}
           </div>
+          
+        </div>
+        
+      </div>
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+          <nav className="pagination is-centered" role="navigation" aria-label="pagination">
+            <a className="pagination-previous" title="This is the first page" disabled>Previous</a>
+            <a className="pagination-next">Next page</a>
+            <ul className="pagination-list list-style-none" >
+              <li>
+                <a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+              </li>
+              <li>
+                <a className="pagination-link" aria-label="Goto page 2">2</a>
+              </li>
+              <li>
+                <a className="pagination-link" aria-label="Goto page 3">3</a>
+              </li>
+            </ul>
+          </nav>
+          </div>
         </div>
       </div>
+    
     </section>
   )
 }
