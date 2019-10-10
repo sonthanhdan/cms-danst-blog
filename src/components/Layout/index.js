@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import Footer from '../../components/Footer'
+import Navbar from '../../components/Navbar'
+import './base.styles.sass'
+import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
@@ -49,7 +49,8 @@ const TemplateWrapper = ({ children }) => {
 
       </Helmet>
       <Navbar />
-      <div className="container">{children}</div>
+      
+      <div className="container is-fluid is-widescreen is-fullhd">{children}</div>
       <Footer />
     </div>
   )
