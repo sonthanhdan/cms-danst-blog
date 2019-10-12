@@ -16,7 +16,7 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
+  <div className="home">
     {/* <div
       className="full-width-image margin-top-0"
       style={{
@@ -96,23 +96,36 @@ export const IndexPageTemplate = ({
                   </div>
                 </div> */}
                 <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest storie
-                  </h3>
-                  <BlogRoll />
-                
-                  
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Recent post
+                  <h3 className="has-text-weight-semibold is-size-2-mobile ss-size-2-tablet is-size-2-desktop is-size-2-fullhd">
+                    Latest stories
                   </h3>
                   <RecentPost/>
-                  <BlogRoll />
 
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
+                      <Link className="btn" to="/blog">
+                          Read more
+                      </Link>
                   </div>
+
+                  <div className="clearfix"></div>
+
+                    <h3 className="has-text-weight-semibold is-size-2-mobile ss-size-2-tablet is-size-2-desktop is-size-2-fullhd">
+                    Recent posts
+                  </h3>
+                  <BlogRoll />
+
+                  {/*<div className="container content">*/}
+                      {/*<div className="columns">*/}
+                          {/*<div className="column is-10 is-offset-1">*/}
+                              <nav className="pagination is-centered" role="navigation" aria-label="pagination">
+                                  <a className="pagination-previous" title="This is the first page" >Previous</a>
+                                  <a className="pagination-next">Next page</a>
+                              </nav>
+                          {/*</div>*/}
+
+                      {/*</div>*/}
+                  {/*</div>*/}
+
                 </div>
               </div>
             </div>

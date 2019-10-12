@@ -18,6 +18,8 @@ $powerby-color: rgb(208, 46, 119)
 $footer-padding: 1rem 1.5rem 1rem
 $footer-background-color: white
 
+$clearfix-color: rgb(243, 243, 243)
+
 .navbar .navbar-menu
   box-shadow: none !important
 
@@ -145,13 +147,27 @@ $menu-label-color: $white-ter
 +mobile
   .blog-list-item header
     display: block
+    .content
+      h2.post-meta
+        height: 4em
+
   .blog-list-item .featured-thumbnail
     text-align: center
     max-width: 70%
     margin: 0 0 1em
 
 
+
 /***    new css  */
+
+.blog-list-item header
+  h2.post-meta
+    height: 4em
+
+@media screen and (max-width: 1023px)
+  .navbar.is-fixed-top .navbar-menu
+    border-top: 1px solid #f3f3f3
+
 .container .boxshadow
   grid-column: 2
   box-shadow: 0 0 120px rgba(0, 0, 0, 0.1)
@@ -159,37 +175,9 @@ $menu-label-color: $white-ter
   padding: 3rem 2rem 6rem 2rem
   text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15)
 
-section.recent-posts
-  box-sizing: border-box
-  color: rgb(41, 43, 44)
-  display: block
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
-  font-size: 16px
-  font-weight: normal
-  height: 1042px
-  line-height: 24px
-  margin-bottom: 20px
-  padding-left: 30px
-  .section-title
-    box-sizing: border-box
-    color: rgb(41, 43, 44)
-    display: block
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
-    font-size: 16px
-    font-weight: normal
-    height: 45px
-    line-height: 24px
-    h2
-      border-bottom: 1px solid rgba(0,0,0,.15)
-      margin-bottom: 25px
-      font-weight: 700
-      font-size: 1.4rem
-      margin-bottom: 27px
-      span
-        border-bottom: 1px solid rgba(0,0,0,.44)
-        display: inline-block
-        padding-bottom: 20px
-        margin-bottom: -1px
+.section.blog-list
+
+
 @media (min-width: 576px)
   .card-columns
     box-sizing: border-box
@@ -241,7 +229,8 @@ section.recent-posts
           display: inline-block
           float: right
           margin-top: 8px
-  
+a.logo
+  margin-left: auto
 @media only screen and (max-width: 768px)
   a.logo
     padding-left: 30px
@@ -381,6 +370,7 @@ article.blog-list-item.tile
 
 /** End BlogRoll */
 /* RecentPost */
+
 .card-h
   bottom: 0px
   box-sizing: border-box
@@ -417,6 +407,156 @@ article.blog-list-item.tile
     display: block
     margin-top: 12px
     text-transform: uppercase
+
+@media (max-width: 990px)
+  .card-h
+    margin-bottom: 90px
+    position: relative
+
+  .card-content-h
+    display: flex
+
+  .card-content-post-date.card-content-left-image
+    margin-right: 25px
+    font-size: 56px
+
+  .card-title-h
+    font-size: 19px
+    margin-bottom: 12px
+    font-weight: 700
+    color: rgb(41, 41, 41)
+    line-height: 1.53
+    font-family: "Fira Sans", sans-serif
+
+  .card-description-h
+    font-size: 14px
+    color: rgb(41, 41, 41)
+    font-weight: 400
+    line-height: 2
+    margin-bottom: 0px
+    margin: 0px 0px 1.7em
+
+
+  // contact
+  .contact
+    margin-bottom: 60px
+    font-size: 26px
+    margin-bottom: 12px
+
+@media (max-width: 575px)
+  .home
+    .container
+      .columns
+        .column.is-10.home
+          display: flex
+          width: 100%
+        .column.is-offset-1
+          margin-left: 2.33333%
+  .section
+    padding: 1rem 1rem
+
+  .card-h
+    flex-direction: column
+    display: flex
+
+    .card-content-h
+      display: flex
+      flex-direction: column
+
+  // contact
+  .container
+    .columns
+      .column.is-10.is-offset-1 .content .column .is-12
+        h2.contact-title
+          font-size: 22px !important
+          margin-bottom: 10px
+          font-weight: 700
+          color: rgb(41, 41, 41)
+          line-height: 1.53
+        p
+          line-height: 2
+          margin: 0px 0px 1.7em
+
+
+
+.section
+  .container
+    .content.has-text-centered.thank-you
+      padding-top: 17%
+      height: 100%
+      padding-bottom: 70%
+
+
+
+  .card-content-post-date.card-content-left-image
+    margin-bottom: 30px
+    width: auto
+    height: auto
+    position: relative
+    transform: translateY(0px)
+
+  .card-title-h
+    font-size: 17px
+    margin-bottom: 10px
+
+
+  .card-description-h
+    font-size: 14px
+    color: rgb(41, 41, 41)
+    font-weight: 400
+    line-height: 2
+    margin-bottom: 0px
+
+
+@media screen and (max-width: 768px)
+  .home
+    .section
+      padding: 1rem 1rem
+      .columns
+      .column.is-10
+        display: flex
+      .column.is-offset-1
+        margin-left: 2.33333%
+
+  .blog-list-item
+    .featured-thumbnail
+      max-width: 100%
+      margin: 0
+      width: auto
+      height: auto
+      position: relative
+      transform: translateY(0px)
+  .contact-title h2
+    font-size: 20px !important
+    font-weight: 700 !important
+    color: rgb(41, 41, 41) !important
+    line-height: 1.53 !important
+    margin-bottom: 15px !important
+
+
+.home .container .section .columns .column .content .column
+  .clearfix
+    border-top: 1px solid #f3f3f3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -506,11 +646,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 /* End NavBar */
 /* Footer */
 .footer
-  border-top: 1px solid rgb(243, 243, 243)
-  // border-top-width: 0.5px
-  // margin: 0px 20px 0px 20px
-  // border-top-color: grey
-
+  border-top: 1px solid $clearfix-color
   .copyright
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
     font-size: 13px
@@ -520,6 +656,8 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .sad-icon
   font-size: 2rem
+
+
 
 
 

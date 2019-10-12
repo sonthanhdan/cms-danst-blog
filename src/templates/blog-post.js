@@ -17,7 +17,7 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
+    <section className="section post">
       {helmet || ''}
       <nav className="breadcrumb is-centered is-small" aria-label="breadcrumbs">
         <ul>
@@ -34,14 +34,14 @@ export const BlogPostTemplate = ({
             </h1>
             <div className="row post-top-meta">
               <div className="author-avatar">
-                <a href="author.html">
+                <a href="/about">
                   <img className="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sal" width="48" height="48"/>
                 </a>
               </div>
               <div className="author-info">
                 <div className="author-description">
-                  <a className="link-dark" href="author.html">Dan St</a>
-                  <a href="#" className="author-major">Developer</a>
+                  <a className="link-dark" href="/about">Dan St</a>
+                  <a href="/about" className="author-major">Developer</a>
                 </div>
                 {/* <span className="author-major"></span> */}
                 <div className="flex-post-date">
@@ -80,17 +80,17 @@ export const BlogPostTemplate = ({
           <nav className="pagination is-centered" role="navigation" aria-label="pagination">
             <a className="pagination-previous" title="This is the first page" disabled>Previous</a>
             <a className="pagination-next">Next page</a>
-            <ul className="pagination-list list-style-none" >
-              <li>
-                <a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-              </li>
-              <li>
-                <a className="pagination-link" aria-label="Goto page 2">2</a>
-              </li>
-              <li>
-                <a className="pagination-link" aria-label="Goto page 3">3</a>
-              </li>
-            </ul>
+            {/*<ul className="pagination-list list-style-none" >*/}
+              {/*<li>*/}
+                {/*<a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>*/}
+              {/*</li>*/}
+              {/*<li>*/}
+                {/*<a className="pagination-link" aria-label="Goto page 2">2</a>*/}
+              {/*</li>*/}
+              {/*<li>*/}
+                {/*<a className="pagination-link" aria-label="Goto page 3">3</a>*/}
+              {/*</li>*/}
+            {/*</ul>*/}
           </nav>
           </div>
         </div>
