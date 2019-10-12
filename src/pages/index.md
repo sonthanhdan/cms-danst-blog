@@ -1,14 +1,14 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+title: Hi. welcome to my blog
+image: /img/emile-perron-xrvdyzrgdw4-unsplash.jpg
+heading: Let a cup coffee
+subheading: Read and enjoying a cup of coffee
 mainpitch:
-  title: Why Kaldi
+  title: Dan Blog's
   description: >
     Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
+    shouldn't just taste good, it should do well too. We source all of our beans
     directly from small scale sustainable farmers and make sure part of the
     profits are reinvested in their communities.
 description: >-
@@ -68,3 +68,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+

@@ -21,10 +21,9 @@ export const BlogPostTemplate = ({
       {helmet || ''}
       <nav className="breadcrumb is-centered is-small" aria-label="breadcrumbs">
         <ul>
-          <li><a href="#">Bulma</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Components</a></li>
-          <li className="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li className="is-active"><a href="#" aria-current="page">{title}</a></li>
         </ul>
       </nav>
       <div className="container content">
@@ -109,7 +108,7 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data,location }) => {
   const { markdownRemark: post } = data
 
   return (
