@@ -12,62 +12,62 @@ class RecentPost extends React.Component {
       <div className="columns is-multiline">
       {posts &&
         posts.map(({ node: post }) => (
-      <div className="card-h" key={post.id}>
-  <div className="card-content-h">
-    <div className="card-content-post-date card-content-left-image">
-        24
-        <span>May</span>
-      </div>
-      {/* <div className="card-content-left-image">
-        <a href="/doc-for-react-project/"></a>
-        <div className="card-image-h">
-          <picture>
-            <source />
-            <source />
-            <img
-              src="/img/preview.jpg"
-              alt="post preview"
-            />
-          </picture>
-          <noscript></noscript>
-        </div> */}
-      {/* </div> */}
-    {/* </div> */}
-    <div className="card-content-right">
-      <div className="card-tags">
-      {/* {post.frontmatter.tags && post.frontmatter.tags.map(tag => (
-                     // <span className="tag has-text-black" key={tag + `tag`}>
-                         <Link to={`/tags/${kebabCase(tag)}/`} >
-                         {tag}
-                         </Link>
-                     // </span>
-                  ))} */}
-        <a href="/tags/markdown/">#blog</a>
-        <a href="/tags/markdown/">#markdown</a>
-      </div>
-      <h2 className="card-title-h">
-        <Link
-          className="title has-text-primary is-size-4"
-          to={post.fields.slug}
-        >
-          {post.frontmatter.title}
-        </Link>
-       
-      </h2>
-      <p>
-      {post.excerpt.substr(0,100)}
-      </p>
-      <div className="btn-readmore">
-      <Link to={post.fields.slug}>
-        Keep Reading →
-      </Link>
-        {/* <a href="/doc-for-react-project/">Read More</a> */}
-      </div>
-    </div>
-  </div>
-</div>
+        <div className="card-h" key={post.id}>
+          <div className="card-content-h">
+            <div className="card-content-post-date card-content-left-image">
+                24
+                <span>May</span>
+              </div>
+              {/* <div className="card-content-left-image">
+                <a href="/doc-for-react-project/"></a>
+                <div className="card-image-h">
+                  <picture>
+                    <source />
+                    <source />
+                    <img
+                      src="/img/preview.jpg"
+                      alt="post preview"
+                    />
+                  </picture>
+                  <noscript></noscript>
+                </div> */}
+              {/* </div> */}
+            {/* </div> */}
+            <div className="card-content-right">
+              <div className="card-tags">
+              {/* {post.frontmatter.tags && post.frontmatter.tags.map(tag => (
+                             // <span className="tag has-text-black" key={tag + `tag`}>
+                                 <Link to={`/tags/${kebabCase(tag)}/`} >
+                                 {tag}
+                                 </Link>
+                             // </span>
+                          ))} */}
+                <a href="/tags/markdown/">#blog</a>
+                <a href="/tags/markdown/">#markdown</a>
+              </div>
+              <h2 className="card-title-h">
+                <Link
+                  className="title has-text-primary is-size-4"
+                  to={post.fields.slug}
+                >
+                  {post.frontmatter.title}
+                </Link>
+
+              </h2>
+              <p className="card-description-h">
+              {post.excerpt.substr(0,100)}
+              </p>
+              <div className="btn-readmore">
+              <Link to={post.fields.slug}>
+                Keep Reading →
+              </Link>
+                {/* <a href="/doc-for-react-project/">Read More</a> */}
+              </div>
+            </div>
+          </div>
+        </div>
         ))}
-</div>
+      </div>
     )
   }
 }

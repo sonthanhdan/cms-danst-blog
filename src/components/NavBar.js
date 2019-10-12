@@ -62,7 +62,7 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/blog">
                   Blog
               </Link>
-              <Link className="navbar-item" to="/contact">
+              <Link className="navbar-item" to="/stories">
                   Chuyện của dev
               </Link>
               <div className="navbar-item has-dropdown is-hoverable is-boxed">
@@ -70,10 +70,7 @@ const Navbar = class extends React.Component {
                   Self
                 </a>
                 <div className="navbar-dropdown">
-                  <Link className="navbar-item" to="/products">
-                    Products
-                  </Link>
-                  <Link className="navbar-item" to="/products">
+                  <Link className="navbar-item" to="/tags/bookresource">
                     Book & Resource
                   </Link>
                   <Link className="navbar-item" to="/products">
@@ -86,7 +83,6 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 About me
               </Link>
-                   
             
             </div>
           </div>
