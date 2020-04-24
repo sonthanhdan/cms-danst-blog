@@ -3,6 +3,7 @@ module.exports = {
     title: 'Dan Blog\'s',
     description:
       'Personal Blog using Gatsby and Netlify CMS',
+    
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 import RecentPost from '../../components/RecentPost'
-import {Link} from "gatsby";
+import { Link } from "gatsby";
 
 export default class BlogIndexPage extends React.Component {
   render() {
@@ -27,7 +27,6 @@ export default class BlogIndexPage extends React.Component {
           </h1>
         </div>
 
-
           <section className="section section--gradient">
               <div className="container">
                   <div className="section">
@@ -36,28 +35,19 @@ export default class BlogIndexPage extends React.Component {
                               <div className="content">
                                   <div className="column is-12">
                                       <RecentPost/>
-
                                       <div className="column is-12 has-text-centered">
                                           <Link className="btn" to="/blog">
                                               Read more
                                           </Link>
                                       </div>
-
                                       <div className="clearfix"></div>
-
                                       <h3 className="has-text-weight-semibold is-size-2">
                                           Recent posts
                                       </h3>
                                       <BlogRoll />
-
-
-
                                   </div>
-
                               </div>
-
                           </div>
-
                       </div>
                       <div className="columns">
                           <div className="column is-10 is-offset-1">

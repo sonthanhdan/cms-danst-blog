@@ -2,28 +2,13 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const utils = require('./utils')
+const { mainQuery } = require('./graphql-queries')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  return graphql(`
-    {
-      allMarkdownRemark(limit: 1000) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              tags
-              templateKey
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
+  return graphql(mainQuery).then(result => {
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()))
       return Promise.reject(result.errors)
@@ -39,30 +24,18 @@ exports.createPages = ({ actions, graphql }) => {
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
-        // additional data can be passed via context
-        context: {
+        context: { // additional data can be passed via context
           id,
         },
       })
     })
 
-    // Tag pages:
-    let tags = []
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
-      }
-    })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
+    let tags = utils.getTagsFromPost(posts); // Tag pages:
 
     // Make tag pages
     tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
-
       createPage({
-        path: tagPath,
+        path: `/tags/${_.kebabCase(tag)}/`,
         component: path.resolve(`src/templates/tags.js`),
         context: {
           tag,
@@ -84,4 +57,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  const { setWebpackConfig } = actions;
+  setWebpackConfig({
+    externals: {
+      jquery: 'jQuery', // important: 'Q' capitalized
+    }
+  })
 }

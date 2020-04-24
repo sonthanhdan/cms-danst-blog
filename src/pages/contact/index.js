@@ -43,12 +43,10 @@ export default class Index extends React.Component {
                           <div className="column is-10 is-offset-1">
                               <div className="content">
                                   <div className="column is-12">
-                                      <h2 className="contact-title is-size-6-mobile">Contact</h2>
-                                      <p>StoryHub theme comes with a contact form built-in. You can use this form with Gatsbay Js service and get up to 50 submissions for free per form per month. Also, you can easily switch to another service if you want.</p>
+                                    <h2 className="contact-title is-size-6-mobile">Contact</h2>
+                                    <p>StoryHub theme comes with a contact form built-in. You can use this form with Gatsbay Js service and get up to 50 submissions for free per form per month. Also, you can easily switch to another service if you want.</p>
 
                                     <div className="contact-form">
-
-
                                       <form
                                           name="contact"
                                           method="post"
@@ -100,13 +98,13 @@ export default class Index extends React.Component {
                                                   Message
                                               </label>
                                               <div className="control">
-                    <textarea
-                        className="textarea"
-                        name={'message'}
-                        onChange={this.handleChange}
-                        id={'message'}
-                        required={true}
-                    />
+                                                <textarea
+                                                    className="textarea"
+                                                    name={'message'}
+                                                    onChange={this.handleChange}
+                                                    id={'message'}
+                                                    required={true}
+                                                />
                                               </div>
                                           </div>
                                           <div className="field">
