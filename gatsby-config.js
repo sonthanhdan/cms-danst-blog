@@ -9,6 +9,17 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
+      resolve: 'gatsby-plugin-html-minifier',
+      options: {
+        caseSensitive: false,
+        collapseBooleanAttributes: false,
+        useShortDoctype: false,
+        removeComments: true,
+        minifyCSS: true,
+        minifyJS: true,
+      }
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
