@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+import { kebabCase } from 'lodash'
 
 class RecentPost extends React.Component {
   render() {
@@ -15,35 +16,17 @@ class RecentPost extends React.Component {
         <div className="card-h" key={post.id}>
           <div className="card-content-h">
             <div className="card-content-post-date card-content-left-image">
-                24
-                <span>May</span>
-              </div>
-              {/* <div className="card-content-left-image">
-                <a href="/doc-for-react-project/"></a>
-                <div className="card-image-h">
-                  <picture>
-                    <source />
-                    <source />
-                    <img
-                      src="/img/preview.jpg"
-                      alt="post preview"
-                    />
-                  </picture>
-                  <noscript></noscript>
-                </div> */}
-              {/* </div> */}
-            {/* </div> */}
+              {post.frontmatter.date.split(" ")[1]}
+              <span>{post.frontmatter.date.split(" ")[0]}</span>
+            </div>
+            
             <div className="card-content-right">
               <div className="card-tags">
-              {/* {post.frontmatter.tags && post.frontmatter.tags.map(tag => (
-                             // <span className="tag has-text-black" key={tag + `tag`}>
-                                 <Link to={`/tags/${kebabCase(tag)}/`} >
-                                 {tag}
-                                 </Link>
-                             // </span>
-                          ))} */}
-                <a href="/tags/markdown/">#blog</a>
-                <a href="/tags/markdown/">#markdown</a>
+                {post.frontmatter.tags && post.frontmatter.tags.map(tag => (
+                  <a key={tag + Date.now()} href={'/tags/'+ kebabCase(tag)}> 
+                  #{tag}
+                  </a>
+                ))}
               </div>
               <h2 className="card-title-h">
                 <Link
@@ -61,7 +44,6 @@ class RecentPost extends React.Component {
               <Link to={post.fields.slug}>
                 Keep Reading →
               </Link>
-                {/* <a href="/doc-for-react-project/">Read More</a> */}
               </div>
             </div>
           </div>
@@ -85,6 +67,7 @@ export default () => (
     query={graphql`
       query RecentPostQuery {
         allMarkdownRemark(
+          limit: 7,
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
         ) {
@@ -98,9 +81,8 @@ export default () => (
               frontmatter {
                 title
                 author
-                description
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "MMMM DD YYYY")
                 featuredpost
                 featuredimage {
                   childImageSharp {
