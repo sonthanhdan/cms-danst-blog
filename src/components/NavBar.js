@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       active: false,
+      activeDropdown: false,
       navBarActiveClass: '',
+      dropdownActiveClass: 'is-hidden-touch',
     }
   }
 
@@ -30,7 +33,29 @@ const Navbar = class extends React.Component {
     )
   }
 
+
+
+  toggleDropdownActiveClass = () => {
+    this.setState(
+        {
+          activeDropdown: !this.state.activeDropdown,
+        },
+        // after state has been updated,
+        () => {
+          // set the class in state for the navbar accordingly
+          this.state.activeDropdown
+              ? this.setState({
+                dropdownActiveClass: '',
+              })
+              : this.setState({
+                dropdownActiveClass: 'is-hidden-touch',
+              })
+        }
+    )
+  }
+
   render() {
+
     return (
       <nav
         className="navbar is-transparent is-fixed-top mediumnavigation"
@@ -66,10 +91,12 @@ const Navbar = class extends React.Component {
                   Chuyện của dev
               </Link>
               <div className="navbar-item has-dropdown is-hoverable is-boxed">
-                <a className="navbar-link">
+                <a className="navbar-link"
+                   onClick={() => this.toggleDropdownActiveClass()}
+                >
                   Self
                 </a>
-                <div className="navbar-dropdown">
+                <div className={`navbar-dropdown ${this.state.dropdownActiveClass}`}>
                   <Link className="navbar-item" to="/tags/bookresource">
                     Book & Resource
                   </Link>

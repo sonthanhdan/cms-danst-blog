@@ -12,6 +12,16 @@ exports.mainQuery = `
                         templateKey
                     }
                 }
+                next {
+                    fields {
+                        slug
+                    }
+                }
+                previous {
+                    fields {
+                        slug
+                    }
+                }
             }
         }
     }

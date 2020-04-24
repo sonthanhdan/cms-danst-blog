@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import Footer from './Footer'
@@ -8,6 +8,13 @@ import './base.styles.sass'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  const [active, setActive] = useState(true)
+  useEffect(() => {
+    setTimeout(function(){
+      setActive(false)
+    }, 1000)
+  }, [])
+
   return (
     <div>
       <Helmet>
@@ -19,8 +26,7 @@ const TemplateWrapper = ({ children }) => {
         <title>{title} - Personal Blog</title>
         <meta name="title" content="Dan Blog's - Personal Blog" />
         <meta name="description" content={description} />
-        <meta name="robots" content="index, follow" />
-        <meta name="robots" content="noindex,nofollow" />
+        <meta name="robots" content="index,follow" />
         <meta name="geo.position" content="latitude; longitude" />
         <meta name="geo.placename" content="Place Name" />
         <meta name="geo.region" content="Country Subdivision Code" />
@@ -78,8 +84,8 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:site_name" content="Dan Blog's - Personal Blog" />
       </Helmet>
       <Navbar />
-
       <div className="container is-fluid is-widescreen is-fullhd">{children}</div>
+      <div className={`pageloader is-bottom-to-top ${ active ? 'is-active': ''}`} ><span className="title">Loading...</span></div>
       <Footer />
     </div>
   )

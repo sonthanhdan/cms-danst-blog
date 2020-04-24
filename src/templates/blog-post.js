@@ -13,6 +13,8 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  prev,
+  next
 }) => {
   const PostContent = contentComponent || Content
 
@@ -78,8 +80,8 @@ export const BlogPostTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
           <nav className="pagination is-centered" role="navigation" aria-label="pagination">
-            <a className="pagination-previous" title="This is the first page" disabled>Previous</a>
-            <a className="pagination-next">Next page</a>
+            <a className="pagination-previous" href={prev} title="This is the first page" disabled={!prev}>Previous</a>
+            <a className="pagination-next" href={next} disabled={!next}>Next page</a>
             {/*<ul className="pagination-list list-style-none" >*/}
               {/*<li>*/}
                 {/*<a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>*/}
@@ -106,11 +108,12 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  prev: PropTypes.string,
+  next: PropTypes.string,
 }
 
-const BlogPost = ({ data,location }) => {
+const BlogPost = ({ data, location, pageContext }) => {
   const { markdownRemark: post } = data
-
   return (
     <Layout>
       <BlogPostTemplate
@@ -128,6 +131,8 @@ const BlogPost = ({ data,location }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        prev={pageContext.prevSlug}
+        next={pageContext.nextSlug}
       />
     </Layout>
   )
