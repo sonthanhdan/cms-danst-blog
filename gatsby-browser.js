@@ -1,5 +1,6 @@
 // const React = require("react")
 const $ = require("jquery")
+require('lazysizes')
 // const Layout = require("./src/components/layout")
 // Logs when the client route changes
 exports.onRouteUpdate = ({ location, prevLocation }) => {

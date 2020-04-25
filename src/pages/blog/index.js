@@ -1,21 +1,18 @@
 import React from 'react'
-import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
-import RecentPost from '../../components/RecentPost'
 import { Link } from "gatsby";
+import Layout from 'components/Layout'
+import BlogRoll from 'components/BlogRoll'
+import RecentPost from 'components/RecentPost'
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/chris-ried-ieic5tq8ymk-unsplash.jpg')`,
-          }}
-        >
-
-        </div>
+          <div className="full-width-image-container margin-top-0">
+              <figure className="image is-fullwidth">
+                  <img className="lazyload" data-src="/img/chris-ried-ieic5tq8ymk-unsplash.jpg" />
+              </figure>
+          </div>
 
           <section className="section section--gradient">
               <div className="container">

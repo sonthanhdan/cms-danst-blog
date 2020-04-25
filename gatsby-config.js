@@ -6,6 +6,15 @@ module.exports = {
     
   },
   plugins: [
+    {
+      resolve: 'gatsby-alias-imports',
+      options: {
+        aliases: {
+          components: 'src/components',
+          hooks: 'src/hooks',
+        }
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -62,6 +71,7 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          'gatsby-remark-lazy-load',
           {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {

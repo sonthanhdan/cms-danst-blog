@@ -4,6 +4,8 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 const utils = require('./utils')
 const { mainQuery } = require('./graphql-queries')
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+require("dotenv").config({ path: `.env.${activeEnv}`})
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -66,8 +68,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({stage, rules, loaders, plugins, actions}) => {
   const { setWebpackConfig } = actions;
+
   setWebpackConfig({
     externals: {
       jquery: 'jQuery', // important: 'Q' capitalized

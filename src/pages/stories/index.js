@@ -1,18 +1,19 @@
 import React from 'react'
-import Layout from '../../components/Layout'
 import {Link} from "gatsby";
-import { useMyStoriesPost } from "../../hooks/use-my-stories-posts"
-import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
+import { useMyStoriesPost } from 'hooks/my-stories-posts'
+import Layout from 'components/Layout'
+import PreviewCompatibleImage from 'components/PreviewCompatibleImage'
+
+
 export default () => {
     const posts = useMyStoriesPost()
 
     return <Layout>
-        <div
-            className="full-width-image-container margin-top-0"
-            style={{
-                backgroundImage: `url('/img/emile-perron-xrvdyzrgdw4-unsplash.jpg')`,
-            }}
-        ></div>
+        <div className="full-width-image-container margin-top-0">
+            <figure className="image is-fullwidth">
+                <img className="lazyload" data-src="/img/emile-perron-xrvdyzrgdw4-unsplash.jpg" />
+            </figure>
+        </div>
         <section className="section">
             <div className="container">
                 <div className="content has-text-centered thank-you">
