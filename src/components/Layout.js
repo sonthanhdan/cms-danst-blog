@@ -8,12 +8,6 @@ import './base.styles.sass'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
-  const [active, setActive] = useState(true)
-  useEffect(() => {
-    setTimeout(function(){
-      setActive(false)
-    }, 1000)
-  }, [])
 
   return (
     <div>
@@ -85,7 +79,6 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       <div className="container is-fluid is-widescreen is-fullhd">{children}</div>
-      <div className={`pageloader is-bottom-to-top ${ active ? 'is-active': ''}`} ><span className="title">Loading...</span></div>
       <Footer />
     </div>
   )
