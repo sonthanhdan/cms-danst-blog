@@ -3,14 +3,14 @@ backend:
    branch: master
   # proxy_url: http://localhost:8081/api/v1
   # repo: sonthanhdan/cms-danst-blog
-accept_roles: #optional - accepts all users if left out
+#accept_roles: #optional - accepts all users if left out
 #   - admin
 #   - editor
 # site_domain: location.hostname
 # site_url: https://localhost:8000
 # display_url: https://localhost:8000
 #logo_url: https://your-site.com/images/logo.svg
-publish_mode: editorial_workflow
+#publish_mode: editorial_workflow
 #media_folder: "static/images/uploads"
 #locale: 'de'
 media_folder: static/img
