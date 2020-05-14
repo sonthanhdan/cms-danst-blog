@@ -36,9 +36,7 @@ git checkout master
 git fetch origin
 git reset --hard origin/mastergit checkout -b new-feature
 git status
-
 git add <some-file>
-
 git commit
 git push -u origin new-feature
 ```
@@ -53,15 +51,13 @@ git commit
 git flow feature finish my-feature 
 ```
 
-
-
-git tag
+**git tag**
 
 Tag là chức năng đặt tên một cách dễ hiểu để có thể dễ dàng tham chiếu commit.
 
-Trên Git có thể sử dụng 2 loại tag là lightweigh tag và annotated tag. Thêm nữa, tag đã đính kèm một lần là cố định, vị trí không di chuyển được như branch.
+Trên Git có thể sử dụng 2 loại tag là light weight tag và annotated tag. Thêm nữa, tag đã đính kèm một lần là cố định, vị trí không di chuyển được như branch.
 
-Lightweigh tag
+Light weight tag
 
 * Temporary tag là cái không thể thay đổi
 * Có thể đặt tên
@@ -75,19 +71,15 @@ Annotated tag
 
 Annotated tag sẽ trở nên quan trọng khi có kế hoạch đánh dấu commit quan trọng. Thông thường dùng để đánh dấu commit dùng để release và cũng có thể thêm những chú thích bên cạnh.
 
-Mặt khác lightweigh tag thì chủ yếu được dùng trên không gian local làm việc tạm thời.
+Mặt khác light weight tag thì chủ yếu được dùng trên không gian local làm việc tạm thời.
 
+**git stash** được sử dụng khi muốn lưu lại các thay đổi chưa commit, thường rất hữu dụng khi bạn muốn đổi sang một branch khác mà lại đang làm dở ở branch hiện tại.
 
+**git cherry-pick**  là một cách để checkout một commit tại branch nhất định về branch hiện tại.
 
-git stash được sử dụng khi muốn lưu lại các thay đổi chưa commit, thường rất hữu dụng khi bạn muốn đổi sang 1 branch khác mà lại đang làm dở ở branch hiện tại.
+\---
 
-
-
-git cherry pick hiểu một cách chi tiết, cherry-pick là một cách để checkout một commit tại branch nhất định về branch hiện tại.
-
-
-
-Tham khảo
+**Tham khảo**
 
 <https://techblog.vn/git-flow>
 
