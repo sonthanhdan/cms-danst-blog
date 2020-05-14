@@ -10,7 +10,7 @@ description: >-
   một self learning của mình còn nhiều thiếu xót các senior đọc góp ý thêm nha
   mình sẽ bổ sung dần cho hoàn thiện.
 featuredpost: true
-featuredimage: /img/dddlayered.png
+featuredimage: /img/domain_driven_design-ericevans.jpg
 tags:
   - ddd
   - domain driven design
