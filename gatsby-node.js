@@ -22,6 +22,9 @@ exports.createPages = ({ actions, graphql }) => {
     posts.forEach(edge => {
       const id = edge.node.id
       const templateKey = edge.node.frontmatter.templateKey;
+      if (templateKey === 'product-page') {
+        return;
+      }
       const prevSlug = (templateKey == 'blog-post' && edge.previous) ? edge.previous.fields.slug : null;
       const nextSlug = (templateKey == 'blog-post' && edge.next) ? edge.next.fields.slug : null;
       let slug = edge.node.fields.slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
