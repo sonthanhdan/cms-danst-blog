@@ -1,6 +1,6 @@
 exports.mainQuery = `
     {
-        allMarkdownRemark(limit: 1000, sort: {order: DESC, fields: frontmatter___date}) {
+        allMarkdownRemark(limit: 1000, sort: {order: DESC, fields: frontmatter___date}, filter: {frontmatter: {templateKey: {ne: "product-page"}}}) {
             edges {
                 node {
                     id
