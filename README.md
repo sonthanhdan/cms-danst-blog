@@ -1,7 +1,6 @@
 # Dan's Blog
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/85b4b641-0796-4aa7-89da-8d1391d5eddd/deploy-status)](https://app.netlify.com/sites/dandev/deploys)
 **Note:** This repo uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
 
 This repo is my personal blog website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS Starter](https://www.netlifycms.org): **[https://danst.tech](https://danst.tech)**.
