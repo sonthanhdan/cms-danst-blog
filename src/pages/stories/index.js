@@ -3,7 +3,7 @@ import {Link} from "gatsby";
 import { useMyStoriesPost } from 'hooks/my-stories-posts'
 import Layout from 'components/Layout'
 import PreviewCompatibleImage from 'components/PreviewCompatibleImage'
-
+import { removeAccents } from '../../helpers'
 
 export default () => {
     const posts = useMyStoriesPost()
@@ -55,7 +55,7 @@ export default () => {
                 <h2 className="card-title-h">
                   <Link
                     className="title has-text-primary is-size-4"
-                    to={post.fields.slug}
+                    to={removeAccents(post.fields.slug)}
                   >
                     {post.frontmatter.title}
                   </Link>
@@ -65,7 +65,7 @@ export default () => {
                 {post.excerpt.substr(0,100)}
                 </p>
                 <div className="btn-readmore">
-                <Link to={post.fields.slug}>
+                <Link to={removeAccents(post.fields.slug)}>
                   Keep Reading →
                 </Link>
             
