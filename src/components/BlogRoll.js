@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import { removeAccents } from '../helpers'
 
 class BlogRoll extends React.Component {
   render() {
@@ -21,18 +21,17 @@ class BlogRoll extends React.Component {
                 <header>
                   {post.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
+                      <figure className="image is-4by3 is-marginless">
+                        <img className="lazy " src={post.frontmatter.featuredimage.childImageSharp.fluid.src || null}
+                        alt={`featured image thumbnail for post ${post.frontmatter.title}`}
+                        />
+                      </figure>
                     </div>
                   ) : null}
                   <h2 className="post-meta">
                     <Link
                       className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
+                      to={removeAccents(post.fields.slug)}
                     >
                       {post.frontmatter.title}
                     </Link>
@@ -47,7 +46,7 @@ class BlogRoll extends React.Component {
                   {post.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.fields.slug}>
+                  <Link className="button" to={removeAccents(post.fields.slug)}>
                     Keep Reading →
                   </Link>
                 </p>

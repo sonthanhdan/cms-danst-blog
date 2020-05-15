@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Link, graphql, StaticQuery } from 'gatsby'
-
+import { removeAccents } from '../helpers'
 class RecentPost extends React.Component {
   render() {
     const { data } = this.props
@@ -30,7 +30,7 @@ class RecentPost extends React.Component {
               <h2 className="card-title-h">
                 <Link
                   className="title has-text-primary is-size-4"
-                  to={post.fields.slug}
+                  to={removeAccents(post.fields.slug)}
                 >
                   {post.frontmatter.title}
                 </Link>
@@ -40,7 +40,7 @@ class RecentPost extends React.Component {
               {post.excerpt.substr(0,100)}
               </p>
               <div className="btn-readmore">
-              <Link to={post.fields.slug}>
+              <Link to={removeAccents(post.fields.slug)}>
                 Keep Reading →
               </Link>
               </div>
