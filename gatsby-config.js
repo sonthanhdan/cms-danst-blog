@@ -7,6 +7,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://danst.tech',
+      },
+    },
+    {
       resolve: 'gatsby-alias-imports',
       options: {
         aliases: {
@@ -17,6 +23,13 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-minify-classnames`,
+      options: {
+        dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
+        enableOnDevelopment: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-html-minifier',
       options: {
@@ -95,5 +108,6 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
+    'gatsby-plugin-remove-trailing-slashes',
   ],
 }
