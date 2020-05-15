@@ -24,9 +24,9 @@ exports.createPages = ({ actions, graphql }) => {
       const templateKey = edge.node.frontmatter.templateKey;
       const prevSlug = (templateKey == 'blog-post' && edge.previous) ? edge.previous.fields.slug : null;
       const nextSlug = (templateKey == 'blog-post' && edge.next) ? edge.next.fields.slug : null;
-
+      let slug = edge.node.fields.slug.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
       createPage({
-        path: edge.node.fields.slug,
+        path: slug,
         tags: edge.node.frontmatter.tags,
         component: path.resolve(
           `src/templates/${String(templateKey)}.js`
