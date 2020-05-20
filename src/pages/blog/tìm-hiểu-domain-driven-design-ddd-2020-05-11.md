@@ -28,8 +28,6 @@ Dự án đặt sự chú trọng nhiều cho phần nghiệp vụ chính (core 
 
 – Tăng cường cộng tác giữa nhóm kỹ thuật( developers) và các chuyên gia nghiệp vụ (domain expert) để xây dựng một mô hình tốt giúp xác định và giải quyết hiệu quả bài toán. [wiki](https://en.wikipedia.org/wiki/Domain-driven_design)
 
-
-
 ## Các Khái niệm cốt lõi của DDD
 
 **Ubiquitous Language** - Ngôn ngữ chung: sử dụng trong cả kỹ thuật và nghiệp vụ được phản ánh trong code và trong cả hệ thống
@@ -52,8 +50,6 @@ Dự án đặt sự chú trọng nhiều cho phần nghiệp vụ chính (core 
 
 **Repository** là kho chứa cho bạn lấy ra hay lưu lại các aggregate
 
-
-
 ## Kiến trúc ứng dụng dùng DDD
 
 **User Interface** (Tầng giao diện người dùng): chịu trách nhiệm cho hiển thị thông tin, nhận lệnh từ người dùng
@@ -64,9 +60,24 @@ Dự án đặt sự chú trọng nhiều cho phần nghiệp vụ chính (core 
 
 **Infrastructure** (Tầng nền tảng): Cung cấp các gói hỗ trợ, liên lạc, cài đặt chi tiết, sử dụng các thư viện bên ngoài..
 
+## **Lợi ích của DDD**
+
+* Phần mềm trở nên linh hoạt
+* Phần mềm phản ánh tầm nhìn của khách hàng, chuyên gia nghành
+* Giải quyết các vấn đề phức tạp
+* cấu trúc source code tổ chức tốt để bảo trì dễ dàng test
+* Business logic nằm một chỗ
+* Rất nhiều pattern hữu ích để sử dụng
+
+## Nhược điểm
+
+DDD mạnh mẽ như vậy nhưng không phải bài toán nào nó cũng phù hợp
+
+* Mất thời gian để xây dựng
+* Tách domain logic ra khỏi phần khác
+* Chỉ hữu ích để giải quyết các vấn đề phức tạp
+
 ## Lời kết
-
-
 
 \---
 
