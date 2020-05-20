@@ -11,7 +11,7 @@ tags:
   - cheat sheet
   - linux
 ---
-## **Tìm file trong thư mục và sắp** 
+## **Tìm file trong thư mục và sắp**
 
 ```
 find /dev/folder/ -name abc-*.bin | sort | tail -n1
@@ -21,13 +21,7 @@ find /dev/folder/ -name abc-*.bin | sort | tail -n1
 
 \#!/usr/bin/env bash -xe
 
-\##################################################
-
 \# Configuration 
-
-\##################################################
-
- 
 
 REPO_DIR=/path/to/your/repository
 
@@ -51,19 +45,13 @@ BRANCHES=(
 
 )
 
- 
-
 cd $REPO_DIR;
-
- 
 
 \# update the repo
 
 git fetch --prune
 
 git checkout $FEATURE_BRANCH
-
- 
 
 \# checkout to the target branch
 
@@ -72,8 +60,6 @@ if \[ -z "\`git branch --list $TARGET_BRANCH\`" ]; then
    git checkout -b $TARGET_BRANCH
 
 fi
-
- 
 
 \# merge all branches into the target branch
 
@@ -85,13 +71,9 @@ do
 
 done
 
- 
-
 echo "DONE SUCCESSFULLY!"
 
-
-
-## Creating branch 
+## Creating branch
 
 $> git fetch
 
@@ -117,7 +99,7 @@ $> git fetch
 
 $> git merge origin/**{branch}** --no-commit --no-ff
 
-2. Cancel merge after reviewing
+## Cancel merge after reviewing
 
 $> git merge --abort
 
@@ -154,8 +136,6 @@ curl -o file.dat http:...	Lưu trữ nội dung URL chỉ định vào file.dat
 Có thể dùng pipe để chuyển kết quả của command này thành input của command kế tiếp.
 
 Ví dụ ta có file sample.txt như sau.
-
-\#### Pipe
 
 sample.txt
 
@@ -195,7 +175,7 @@ Thực thi grep log để tìm các tên ngoại lệ, sau đó thực thi wc -l
 
 Thực thi cat log của worker rồi grep bằng domain name, sau đó grep bằng job name, xem bằng less
 
-\#### Create serial number
+## Create serial number
 
 Tạo serial number 1 2 3 4 5 6 7 8 9 10 bằng {1..10}
 
@@ -211,7 +191,7 @@ $ echo {5..-5}
 
 Khi muốn tạo một dãy (sequence) phức tạp hơn, chẳng hạn sequence tăng dần mỗi 3 đơn vị thì sử dụng command seq.
 
-\###### Redirect
+## Redirect
 
 Trong shell script, khi muốn xuất kết quả nào đó ra file, dùng > để điều hướng xuất file.
 
@@ -275,7 +255,7 @@ $ echo $TIME
 
 2016-01-08 00:35:06
 
-\##### 
+
 
 Biến không chỉ dùng để chứa giá trị muốn hiển thị,
 
@@ -289,7 +269,7 @@ CMD=echo
 
 $CMD Hello World
 
-\#### Shell Script Format
+## Shell Script Format
 
 \#!/bin/bash
 
@@ -299,7 +279,7 @@ command2
 
 command3
 
-\#### Loop
+## Loop
 
 Khi số vòng lặp đã được quy định
 
@@ -333,7 +313,7 @@ echo $i
 
 done
 
-\#### Branch
+## Branch
 
 Dùng câu if (bên trong là command test) hoặc dùng &&, ||
 
@@ -377,7 +357,7 @@ Mặc dù vậy, cũng có trường hợp khó có thể biết được trong 
 
 vì vậy, hãy dùng $? để xem mã kết thúc tiến trình, kiểm tra trạng thái của nó trong quá trình soạn shell script.
 
-\##### Specify path
+## Specify path
 
 Nếu Path bắt đầu bằng ./ nghĩa là file đó đang ở trong thư mục hiện hành.
 
@@ -395,7 +375,7 @@ $ which test
 
 /usr/bin/test
 
-\#####
+## Regular expression
 
 Regular expression nằm ở dưới cùng trong page này:
 
@@ -425,15 +405,15 @@ Lưu ý là sau khi replace 1 file bằng sed vd như file input.txt, không đ�
 
 Nếu làm như vậy thì bên trong file input.txt sẽ bị trống.
 
-$ cat input.txt | sed -e 's,cyboze,cybozu,g' > input.txt
+$ cat input.txt | sed -e 's,,g' > input.txt
 
 Trường hợp muốn edit nội dung bên trong input.txt và lưu cùng tên file thì dùng option -i của sed
 
-$ sed -i 's,cyboze,cybozu,g' input.txt
+$ sed -i 's,,g' input.txt
 
 Vì + hoặc {3,4} không thể sử dụng trong sed thông thường nên hãy dùng -E. Khi thực hiện biểu thức chính quy grep cũng tương tự.
 
-\#### Capture
+## Capture
 
 $ cat input.txt
 
@@ -451,7 +431,7 @@ age XXX28XXX
 
 weight XXX65XXX
 
-\##### awk
+## awk
 
 Nếu nhớ được awk thì sẽ có thể làm được rất nhiều việc.
 
@@ -473,7 +453,7 @@ awk '{print $(NF-2)}'	In column thứ 2 từ cuối lên, phân cách bởi kho�
 
 awk '{sum += $5} END {print sum}'	Xuất tổng giá trị của trường thứ 5 của đầu vào đã nhận
 
-\### related
+## related
 
 Script search file docuworks
 
