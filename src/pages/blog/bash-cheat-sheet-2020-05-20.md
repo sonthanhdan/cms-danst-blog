@@ -508,3 +508,11 @@ echo "$domain/$app total: $FILES found: $FOUND"
 done
 
 done
+
+
+
+## Tài liệu tham khảo
+
+<https://wiki.bash-hackers.org/>
+
+<https://devhints.io/bash>
