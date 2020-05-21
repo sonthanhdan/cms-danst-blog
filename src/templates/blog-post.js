@@ -17,10 +17,11 @@ export const BlogPostTemplate = ({
   next,
   author,
   publishDate,
-  timeToRead
+  timeToRead,
+  featuredimage
 }) => {
   const PostContent = contentComponent || Content
-
+console.log(featuredimage)
   return (
     <section className="section post">
       {helmet || ''}
@@ -58,6 +59,15 @@ export const BlogPostTemplate = ({
                 </div>
               </div>
             </div>
+            {featuredimage ? (
+                <div className="featured-thumbnail ">
+                  <figure className="image is-4by3 is-marginless">
+                    <img className="lazy " src={featuredimage.childImageSharp.fluid.src || null}
+                         alt={`featured image thumbnail for post ${title}`}
+                    />
+                  </figure>
+                </div>
+            ) : null}
             <p className="post-description">{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -113,11 +123,13 @@ BlogPostTemplate.propTypes = {
   next: PropTypes.string,
   author: PropTypes.string,
   publishDate: PropTypes.string,
-  timeToRead: PropTypes.number
+  timeToRead: PropTypes.number,
+  featuredimage: PropTypes.object
 }
 
 const BlogPost = ({ data, location, pageContext }) => {
   const { markdownRemark: post } = data
+
   return (
     <Layout>
       <BlogPostTemplate
@@ -134,6 +146,7 @@ const BlogPost = ({ data, location, pageContext }) => {
           </Helmet>
         }
         publishDate={post.frontmatter.date}
+        featuredimage={post.frontmatter.featuredimage}
         timeToRead={post.timeToRead}
         author={post.frontmatter.author}
         tags={post.frontmatter.tags}
@@ -163,7 +176,15 @@ export const pageQuery = graphql`
         title
         description
         tags
-        author
+        author,
+        featuredpost
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 1200, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       timeToRead
     }
