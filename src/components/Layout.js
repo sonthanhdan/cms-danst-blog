@@ -92,7 +92,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:site_name" content="Dan Blog's | Personal Blog" />
       </Helmet>
       <Navbar />
-      <div className="container is-fluid is-widescreen is-fullhd">{children}</div>
+      <div>{children}</div>
       <Footer />
     </div>
   )
