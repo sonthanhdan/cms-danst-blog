@@ -77,31 +77,67 @@ echo "DONE SUCCESSFULLY!"
 
 $> git fetch
 
-$> git checkout <branch>
+$> git checkout {branch}
 
 ## Creating branch locally
 
-$> git checkout <branch>
+git checkout {branch}
 
-$> git pull
+git pull
 
-$> git checkout -b <branch>
+git checkout -b {branch}
 
-$> git push -u origin <branch>
+git push -u origin {branch}
 
 ## **Merge locally for reviewing**
 
-$> git checkout <branch>
+git checkout {branch}
 
-$> git pull
+git pull
 
-$> git fetch
+git fetch
 
-$> git merge origin/**{branch}** --no-commit --no-ff
+git merge origin/**{branch}** --no-commit --no-ff
 
 ## Cancel merge after reviewing
 
-$> git merge --abort
+git merge --abort
+
+## List existing branches
+
+git branch --list
+
+## Fetch from remote
+
+git fetch origin
+
+git checkout --track origin/$branchname
+
+## Delete a branch
+
+git remote prune origin // delete local remote tracking
+
+git branch -d $branchname // delete local
+
+git push origin --delete :$branchname // delete remote
+
+
+
+## Rebase your changes on top of the remote master
+
+git pull --rebase upstream master
+
+## diff
+
+git diff --stat
+
+## Searching commit
+
+git log --grep="fixes things"  # search in commit messages
+
+git log -S"window.alert"         # search in code
+
+git log -G"foo.*"                     # search in code (regex)
 
 ## Basic command
 
@@ -241,7 +277,7 @@ Lý do là vì chữ trên màn hình đã được không được xuất vào 
 
 Tôi sẽ trình bày chi tiết ở phần tiếp theo đây.
 
-\### Basic of variables
+## Basic of variables
 
 Về tên biến thì dùng chữ thường cho biến số, dùng CHỮ HOA cho hằng số (giá trị không đổi),
 
@@ -254,8 +290,6 @@ $ TIME=$(date +'%Y-%m-%d %H:%M:%S')
 $ echo $TIME
 
 2016-01-08 00:35:06
-
-
 
 Biến không chỉ dùng để chứa giá trị muốn hiển thị,
 
@@ -511,8 +545,54 @@ done
 
 
 
+## Conditional execution
+
+```
+git commit && git pushgit commit || echo "Commit failed"
+```
+
+
+
+## Reading lines
+
+```
+cat file.txt | while read line; doecho $linedone
+```
+
+## Arguments
+
+$#	Number of arguments
+
+$*	All arguments
+
+$@	All arguments, starting from first
+
+$1	First argument
+
+$_	Last argument of the previous command
+
+## Special variables
+
+$?	Exit status of last task
+
+$!	PID of last background task
+
+$$	PID of shell
+
+$0	Filename of the shell script
+
+
+
+
+
+
+
+
+
 ## Tài liệu tham khảo
 
 <https://wiki.bash-hackers.org/>
 
 <https://devhints.io/bash>
+
+<https://git-scm.com/docs/>
