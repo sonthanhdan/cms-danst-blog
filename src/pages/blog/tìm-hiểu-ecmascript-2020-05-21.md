@@ -17,9 +17,7 @@ ES6 là chữ viết tắt của ECMAScript 6, là phiên bản mới nhất c�
 
 ES6 ra đời vào năm 2015 nên cái tên ES2015 được lấy làm tên chính thức với nhiều tính năng mới học hỏi các ngôn ngữ cấp cao khác, hy vọng dần theo thời gian Javascript trở thành một ngôn ngữ lập trình hướng đối tượng.
 
-Phiên bản sắp ra trong năm 2017 đó là phiên bản ES7 cũng đang được nghiên cứu và phát triển, họ cũng nhắm đến các kiến thức mới lạ như async function, observer, .. Hy vọng sẽ có nhiều biến động mới.
-
-
+Phiên bản sắp ra trong năm 2017 đó là phiên bản ES7 cũng đang được nghiên cứu và phát triển, họ cũng nhắm đến các kiến thức mới lạ như async function, observer, .. Hy vọng sẽ có nhiều biến động mới.
 
 ES6 là một thế hệ tiếp theo của JavaScript, ủy ban kỹ thuật ecma 39 chi phối đặc tả ecma, họ đã phát hiện ra các tính năng mới cho javascript. ES6 không thể biên dịch trực tiếp trong các trình duyệt, vì vậy cần một trình biên dịch từ ES6 đến ES5, để biên dịch bằng babel, nó tạo ra javascript tương thích với trình duyệt.
 
@@ -53,27 +51,28 @@ const PI = 3.141593
 
 PI > 3.0
 
+**Arrows
+ function** : là một cú pháp mới trong ES6 cho bạn định nghĩa function Bạn có thể tạo hàm bằng cách sử dụng dấu mũi tên =>.
 
+**Classes**
+: định nghĩa trực quan OOP hơn với bảng mẫu OOP-style
 
-**Arrows function** : là một cú pháp mới trong ES6 cho bạn định nghĩa function Bạn có thể tạo hàm bằng cách sử dụng dấu mũi tên =>.
+**Enhanced object literals**  (pending todo research)
 
+**Template strings** : cú pháp mới cho phép tạo chuổi multiline. Sử dụng linh hoạt các biến hoặc phương thức không cần phải mất công cộng chuỗi nữa, code rõ ràng hơn nhiều.
 
+**Destructuring Assignment**: cú pháp giúp ta có thể khởi tạo các biến từ một mảng bằng một dòng code đơn giản. Tính năng này khá giống với hàm list trong PHP. Nghĩa là nó sẽ phân các giá trị trong mảng vào các biến theo thứ tự hay nói cách khác nó sẽ
+ tách các phần tử của Array hoặc Object thành nhiều biến chỉ bằng một đoạn code duy nhất.
 
-**Classes**: định nghĩa trực quan OOP hơn với bảng mẫu OOP-style
-
-**Enhanced object literals**
-
-**Template strings**: cú pháp mới cho phép tạo chuổi multiline. Sử dụng linh hoạt các biến hoặc phương thức không cần phải mất công cộng chuỗi nữa, code rõ ràng hơn nhiều.
-
-**Destructuring Assignment**: cú pháp giúp ta có thể khởi tạo các biến từ một mảng bằng một dòng code đơn giản. Tính năng này khá giống với hàm list trong PHP. Nghĩa là nó sẽ phân các giá trị trong mảng vào các biến theo thứ tự hay nói cách khác nó sẽ tách các phần tử của Array hoặc Object thành nhiều biến chỉ bằng một đoạn code duy nhất.
-
-**Default Parameter + Rest Parameter + Spread Parameter**
+**Default Parameter + Rest Parameter + Spread
+ Parameter**
 
 **Default Parameter**: gán giá trị mặc định cho các tham số.
 
 **Rest Parameter**: tham số còn lại, Tổng hợp các đối số còn lại thành tham số duy nhất của các hàm
 
-**Spread Parameter**: cho phép chuyển đổi một chuỗi thành nhiều argument
+**Spread
+ Parameter**: cho phép chuyển đổi một chuỗi thành nhiều argument
 
 **Block – Scoped Constructs Let and Const**
 
@@ -121,37 +120,35 @@ Array(3 + 1).join("foo"); // ES5
 
 "hello".includes("ell", 2)    // false
 
-**Iterators + for..of**
+**Iterators + for..of**  (pending todo research)
 
-**Generators**
+**Generators**  (pending todo research)
 
-**Unicode**
+**Unicode**  (pending todo research)
 
-**Modules:**Hỗ trợ import / export module hoặc giá trị mà không gây ô nhiễm namespace
+**Modules:** Hỗ trợ import / export module hoặc giá trị mà không gây ô nhiễm namespace
 
-**Module loaders**
+**Module loaders**  (pending todo research)
 
-**Map + Set + Weakmap + Weakset**
+**Map + Set + Weakmap + Weakset**  (pending todo research)
 
-**Proxies**
+**Proxies**  (pending todo research)
 
-**Symbols**
+**Symbols**  (pending todo research)
 
-**Subclassable built-ins**
+**Subclassable built-ins**  (pending todo research)
 
-**Promises**
+**Promises**  (pending todo research)
 
-**Math + Number + String + Array + Object APIs**
+**Math + Number + String + Array + Object APIs**  (pending todo research)
 
-**Binary and octal literals**
+**Binary and octal literals**  (pending todo research)
 
-**Reflect API**
+**Reflect API**  (pending todo research)
 
-**Tail calls**
+**Tail calls**  (pending todo research)
 
 ## Tại sao nên sử dụng ES6
-
-
 
 ## ES7 (ES2016)
 
