@@ -9,7 +9,6 @@ featuredimage: /img/ecmascript.jpg
 tags:
   - javascript
   - es6
-  - ''
 ---
 ## Lịch sử
 
