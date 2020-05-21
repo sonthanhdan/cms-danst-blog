@@ -13,23 +13,15 @@ tags:
 ---
 **Agile Là gì?**
 
-> **Agile**
->
->  là một phương pháp phát triển phần mềm linh hoạt, là một hướng tiếp cận cụ thể cho việc quản lý dự án phần mềm. Nó gồm một quá trình làm việc tương tác và tích hợp để có thể đưa sản phẩm đến tay người dùng càng nhanh càng tốt.
+> **Agile** là một phương pháp phát triển phần mềm linh hoạt, là một hướng tiếp cận cụ thể cho việc quản lý dự án phần mềm. Nó gồm một quá trình làm việc tương tác và tích hợp để có thể đưa sản phẩm đến tay người dùng càng nhanh càng tốt.
 
 **Scrum là gì**
 
-> **Scrum**
->
->  là một Framework về quy trình và quản lý giúp giải quyết các vấn đề phức tạp, nhưng vẫn đảm bảo tính hiệu quả, sáng tạo và sản phẩm được tạo ra phải đạt được giá trị cao nhất. Bản thân Scrum là một Framework đơn giản nhằm giúp việc phối hợp hiệu quả nhất giữa các thành viên trong đội phát triển khi thực hiện những sản phẩm phức tạp. Với Scrum, sản phẩm được xây dựng trên 1 chuỗi các quy trình lặp lại (gọi là Sprint). Các sprint diễn ra đều đặn, mỗi một sprint là cơ hội để học hỏi điều chỉnh nhằm đạt được sự phù hợp và kết quả tốt nhất.
-
-
+> **Scrum** là một Framework về quy trình và quản lý giúp giải quyết các vấn đề phức tạp, nhưng vẫn đảm bảo tính hiệu quả, sáng tạo và sản phẩm được tạo ra phải đạt được giá trị cao nhất. Bản thân Scrum là một Framework đơn giản nhằm giúp việc phối hợp hiệu quả nhất giữa các thành viên trong đội phát triển khi thực hiện những sản phẩm phức tạp. Với Scrum, sản phẩm được xây dựng trên 1 chuỗi các quy trình lặp lại (gọi là Sprint). Các sprint diễn ra đều đặn, mỗi một sprint là cơ hội để học hỏi điều chỉnh nhằm đạt được sự phù hợp và kết quả tốt nhất.
 
 Scrum được xây dựng dựa trên lý thuyết quản lý tiến trình thực nghiệm.giúp giảm thiểu rủi ro và tăng tính chính xác đặc biệt là trong môi trường phát triển phần mềm nhiều biến động.
 
 Ba yếu tố nòng cốt tạo thành một mô hình quản lý tiến trình thực nghiệm gồm: sự minh bạch (transparency), thanh tra (inspection) và thích nghi (adaptation).
-
-
 
 **Tại sao nên sử dụng Scrum?**
 
@@ -41,8 +33,6 @@ Ba yếu tố nòng cốt tạo thành một mô hình quản lý tiến trình 
 * Scrum cho phép khách hàng sử dụng sản phẩm sớm hơn
 * Scrum cải tiến liên tục
 
-
-
 **Lợi ích mà Scrum mang lại**
 
 1. Cải thiện chất lượng phần mềm
@@ -52,8 +42,6 @@ Ba yếu tố nòng cốt tạo thành một mô hình quản lý tiến trình 
 5. Tăng mức độ hài lòng của khách hành
 6. Kiểm soát dự án tốt
 7. Giảm thiểu rủi ro
-
-
 
 **Scrum hoạt động như thế nào?**
 
@@ -65,8 +53,6 @@ Ba yếu tố nòng cốt tạo thành một mô hình quản lý tiến trình 
 
 **Sprint retrospective**: Sự đánh giá, nhìn lại những điều đã làm được và chưa làm được của Sprint hiện tại, và đưa ra giải pháp hành động cho Sprint tiếp theo được tốt và hoàn thiện hơn.
 
-
-
 **Các vai trò chính trong Scrum**
 
 **Product Owner** : Là người chịu trách nhiệm về sự thành công của dự án, người định nghĩa các yêu cầu và đánh giá cuối cùng đầu ra của các nhà phát triển phần mềm.
@@ -74,8 +60,6 @@ Ba yếu tố nòng cốt tạo thành một mô hình quản lý tiến trình 
 **Scrum Master** : Là người có hiểu biết sâu sắc về Scrum và đảm bảo nhóm có thể làm việc hiệu quả với Scrum.
 
 **Development Team** : (Developers, Testers, Designers, và Ops Engineers) Một nhóm liên chức năng (cross-functional) tự quản lý để tiến hành chuyển đổi các yêu cầu được tổ chức trong Product Backlog thành chức năng của hệ thống.
-
-
 
 **Scrum** phát triển sản phẩm bằng cách thiết lập một vòng lặp trong một thời gian cố định. Mỗi vòng lặp này được gọi là Sprint. Thông thường, mỗi lần chạy sprint cố định trong khoảng 2 tuần đến 1 tháng.
 
@@ -89,8 +73,6 @@ Các mục backlog cũng có thể được chia ra khi cần thiết.
 
 Quyền ưu tiên công việc có thể được sửa đổi trong các mục backlog trong giai đoạn này
 
-
-
 Mỗi Sprint đều có các cuộc họp Stand-Up hàng ngày / Các cuộc họp Scrum hàng ngày
 
 Tất cả thành viên trong đội đều tham gia
@@ -101,23 +83,15 @@ Những gì đã được thực hiện kể từ cuộc họp cuối cùng, Đi
 
 Đưa ra các Blockers, Bottlenecks, sự phụ thuộc trong các cuộc họp.
 
-	
-
 Mỗi Sprint được kết thúc bằng cuộc họp Retrospective meeting
 
 Các hạng mục công việc đã hoàn thành được giới thiệu / Demo trong thời gian họp
 
 Phân tích: những điều thành công (đạt được) từ Sprint và những việc cần khắc phục cho kỳ sprint tiếp theo.
 
-	
-
 Khi Sprint kết thúc, lặp lại các bước tương tự ở trên cho các mục còn lại của Backlog.
 
-
-
 **Kanban là gì?**
-
-
 
 **Kanban** có nghĩa là 'Visual Signal' trong tiếng Nhật. Phương pháp Kanban là hình dung tất cả những gì bạn sẽ làm cho ngày hôm nay.
 
@@ -141,8 +115,6 @@ Các hạng mục công việc quan trọng nhất được giữ ở đầu dan
 
 Không có vòng lặp lại trong thời gian cố định ở bảng Kanban. Tất cả đều dựa vào cycle times. Cycle time là thời gian để di chuyển một mục công việc từ trạng thái To Do đi đến trạng thái Done.
 
-
-
 **Kanban** cũng cho thấy tầm quan trọng của nguồn nhân lực đa năng. Khi một người có nhiều kỹ năng, cô / anh ta không chỉ làm việc với chỉ một kỹ năng. Họ có thể đóng góp vào các mục công việc khác trong nhiều khía cạnh. Ví dụ: một developer không chỉ dán chặt vào công việc develop code. Trong trường hợp được yêu cầu, developer có thể chuyển sang Kiểm tra (Testing) do đó làm giảm sự phụ thuộc và cycle time.
 
 So sánh Kanban và Scrum
@@ -155,8 +127,6 @@ So sánh Kanban và Scrum
 * Không cho phép thay đổi khi srpint đã bắt đầu
 * Khi sprint hoàn thành trong batches, đồng nghĩa là tổng số công việc đã hoàn thành đặt được trong batches/Sprints
 
-
-
 ## **Kanban**
 
 * Đo lường chu kì bằng cycle times
@@ -164,8 +134,6 @@ So sánh Kanban và Scrum
 * Không hoạt động dựa trên các vai trò
 * Linh hoạt trong thay đổi tại bất cứ thời điểm nào
 * Công việc được hoàn thành dựa trên sự chuyển động của luồng công việc duy nhất
-
-
 
 ## **Kết luận**
 
