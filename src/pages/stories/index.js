@@ -9,7 +9,7 @@ export default () => {
     const posts = useMyStoriesPost()
 
     return <Layout>
-        <div className="full-width-image-container margin-top-0">
+        <div>
             <figure className="image is-fullwidth">
                 <img className="lazyload" data-src="/img/emile-perron-xrvdyzrgdw4-unsplash.jpg" />
             </figure>

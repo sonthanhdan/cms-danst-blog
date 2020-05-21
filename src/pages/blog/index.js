@@ -8,7 +8,7 @@ export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-          <div className="full-width-image-container margin-top-0">
+          <div>
               <figure className="image is-fullwidth">
                   <img className="lazyload" data-src="/img/chris-ried-ieic5tq8ymk-unsplash.jpg" />
               </figure>
