@@ -221,6 +221,8 @@ Array.sort now retains order if keys are equal
 
 <http://es6-features.org>
 
+<http://www.developer-cheatsheets.com/es6>
+
 <https://github.com/lukehoban/es6features#arrows>
 
 <https://github.com/lukehoban/es6features#classes>
