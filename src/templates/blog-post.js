@@ -21,7 +21,6 @@ export const BlogPostTemplate = ({
   featuredimage
 }) => {
   const PostContent = contentComponent || Content
-console.log(featuredimage)
   return (
     <section className="section post">
       {helmet || ''}
@@ -94,17 +93,6 @@ console.log(featuredimage)
           <nav className="pagination is-centered" role="navigation" aria-label="pagination">
             <a className="pagination-previous" href={prev} title="This is the first page" disabled={!prev}>Previous</a>
             <a className="pagination-next" href={next} disabled={!next}>Next page</a>
-            {/*<ul className="pagination-list list-style-none" >*/}
-              {/*<li>*/}
-                {/*<a className="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-                {/*<a className="pagination-link" aria-label="Goto page 2">2</a>*/}
-              {/*</li>*/}
-              {/*<li>*/}
-                {/*<a className="pagination-link" aria-label="Goto page 3">3</a>*/}
-              {/*</li>*/}
-            {/*</ul>*/}
           </nav>
           </div>
         </div>
