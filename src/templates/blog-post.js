@@ -60,7 +60,7 @@ export const BlogPostTemplate = ({
             </div>
             {featuredimage ? (
                 <div className="featured-thumbnail ">
-                  <figure className="image is-4by3 is-marginless">
+                  <figure className="image is-5by3 is-marginless">
                     <img className="lazy " src={featuredimage.childImageSharp.fluid.src || null}
                          alt={`featured image thumbnail for post ${title}`}
                     />
