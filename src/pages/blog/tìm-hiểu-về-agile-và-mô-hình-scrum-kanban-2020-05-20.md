@@ -11,6 +11,40 @@ tags:
   - scrum
   - kanban
 ---
+## **Quy trình phát triển phần mềm:** 
+
+**Giải pháp, yêu cầu :** 
+
+* Nhiệm vụ: Thực hiện khảo sát chi tiết yêu cầu của khách hàng để từ đó tổng hợp vào tài liệu giải pháp. Tài liệu này phải mô tả đầy đủ các yêu cầu về chức năng, phi chức năng và giao diện.
+* Kết quả: Đầu ra của giai đoạn này là Tài liệu đặc tả yêu cầu
+
+**Thiết kế:** 
+
+* Nhiệm vụ: Thực hiện thiết kế và tổng hợp vào tài liệu thiết kế.
+* Kết quả: Tài liệu thiết kế tổng thể, thiết kế module, thiết kế CSDL
+
+**Lập trình:** 
+
+* Nhiệm vụ: Lập trình viên thực hiện lập trình dựa trên tài liệu Giải pháp và Thiết kế đã được phê duyệt.
+* Kết quả: Source code.
+
+**Kiểm thử:** 
+
+* Nhiệm vụ: Tester tạo kịch bản kiểm thử (test case) theo tài liệu đặc tả yêu cầu, thực hiện kiểm thử và cập nhật kết quả vào kịch bản kiểm thử, log lỗi trên các tool quản lý lỗi.
+* Kết quả: Test case , lỗi trên hệ thống quản lý lỗi.
+
+**Triển khai:** 
+
+* Nhiệm vụ: Triển khai sản phẩm cho khách hàng.
+* Kết quả: Biên bản triển khai với khách hàng.
+
+ **Waterfall Model** (Mô hình thác nước): Thường áp dụng cho các phần mềm có quy mô vừa và nhỏ. Các dự án có yêu cầu rõ ràng, ít thay đổi. Nguồn lực được đào tạo và sẵn sàng.
+
+* Ưu điểm: Vì có yêu cầu rõ ràng nên dễ hiểu, dễ áp dụng. Dễ phân công công việc, bố trí , giám sát
+* Nhược điểm: Thực tế cho thấy rằng đến những giai đoạn cuối cùng của dự án mới có khả năng nhận ra sai sót trong những giai đoạn trước để có thể quay lại sửa chữa.
+
+Trong những năm gần đây **SCRUM** nổi lên như một phương thức tổ chức sản xuất ưu việt được nhiều công ty phần mềm áp dụng và thành công dựa lý thuyết **Agile**.
+
 **Agile Là gì?**
 
 > **Agile** là một phương pháp phát triển phần mềm linh hoạt, là một hướng tiếp cận cụ thể cho việc quản lý dự án phần mềm. Nó gồm một quá trình làm việc tương tác và tích hợp để có thể đưa sản phẩm đến tay người dùng càng nhanh càng tốt.
@@ -117,7 +151,7 @@ Không có vòng lặp lại trong thời gian cố định ở bảng Kanban. T
 
 **Kanban** cũng cho thấy tầm quan trọng của nguồn nhân lực đa năng. Khi một người có nhiều kỹ năng, cô / anh ta không chỉ làm việc với chỉ một kỹ năng. Họ có thể đóng góp vào các mục công việc khác trong nhiều khía cạnh. Ví dụ: một developer không chỉ dán chặt vào công việc develop code. Trong trường hợp được yêu cầu, developer có thể chuyển sang Kiểm tra (Testing) do đó làm giảm sự phụ thuộc và cycle time.
 
-So sánh Kanban và Scrum
+## **So sánh Kanban và Scrum**
 
 ## **Scrum**
 
@@ -137,8 +171,14 @@ So sánh Kanban và Scrum
 
 ## **Kết luận**
 
-## Thực hành
+## Tham khảo
 
-## Tài liệu tham khảo
+[Các quy trình phát triển phần mềm](https://topdev.vn/blog/quy-trinh-phat-trien-phan-mem/)\
+<https://techtalk.vn/agile-la-gi-scrum-la-gi.html>
 
-## Repo
+<https://techtalk.vn/chu-trinh-agile-scrum.html>
+
+<http://www.scrumalliance.org>\
+<https://www.scrum.org>
+
+<http://www.slideshare.net/jaaronfarr/scrum-agile-for-everyone>
