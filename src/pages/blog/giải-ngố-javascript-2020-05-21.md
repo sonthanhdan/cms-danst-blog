@@ -19,7 +19,7 @@ Từ các phiên bản ES5 trở về trước, Javascript không có khái ni�
 
 **Hàm callback** làm hàm được truyền vào “hàm-khác” như một tham số đầu vào, sau đó sẽ được gọi kích hoạt bên trong “hàm-khác” này.
 
-## Closures là gì? 
+## Closures là gì?
 
 Nói một cách ngắn gọn thì closure là một hàm con (inner function) nằm bên trong 1 hàm khác (outer function). Ta đã biết rằng closure thì không thể truy cập tới con trỏ this của hàm cha (outer function)
 
@@ -33,19 +33,13 @@ Thứ 2: Biến được khai báo bên ngoài hàm sẽ là biến toàn cục,
 
 Khi code sử dụng javascript, có một khái niệm cũng khá là đặc biệt là hoisting. Với khái niệm này, javascript quy định, mọi khai báo biến đều được đưa lên trên cùng của một tầm vực. Tức là mặc kệ bạn khai báo biến ở vị trí nào trong 1 hàm, thì tự động nó sẽ kéo lên trên cùng của hàm để khai báo (javascript tự động thực hiện ngầm cho khái niệm này).
 
-
-
 ## Con trỏ this?
 
 Trong các ngôn ngữ OOP điển hình như C++, PHP, Java, … khái niệm con trỏ “this” tương đối dễ hiểu, nó gắn liền với thực thể (instance) đang được kích hoạt. Ở javascript thì mọi chuyện có vẻ phức tạp hơn, giá trị của this gắn liền với context mà nó được gọi
 
-
-
 Hàm Bind() này được sử dụng với mục đích trả về cho ta một hàm khác với ngữ cảnh con trỏ “this” đã được thiết đặt. Nói cách khác, hàm bind() cho phép chúng ta gán giá trị của một đối tượng cụ thể nào đó vào con trỏ “this” của hàm được kích hoạt.
 
 Apply() và Call() hai hàm này cũng giúp chúng ta gán được tường minh giá trị của con trỏ “this” bên trong hàm được kích hoạt, tuy nhiên điều khác biệt lớn nhất so với hàm bind() chính là việc hàm apply() và call() sẽ kích hoạt ngay hàm được gọi chứ không trả về một hàm khác như bind().
-
-
 
 ## IIFE: Immediately Invoked Function Expression
 
@@ -56,3 +50,21 @@ Apply() và Call() hai hàm này cũng giúp chúng ta gán được tường mi
  //code here
 
 })();
+
+## Async
+
+Async function cho phép chúng ta viết promise-base code bởi vì nếu nó là synchronous, nhưng không chặn luồng thực thi. Nó hoạt động asynchronously thông qua event-loop. Các hàm Async sẽ luôn trả về một giá trị. Sử dụng async chỉ đơn giản ngụ ý rằng một promise sẽ được trả lại và nếu promise không được trả về, JavaScript tự động kết thúc và resolved promise với giá trị của nó.
+
+
+
+## Await
+
+Await operator được sử dụng để chờ một Promise. Nó chỉ có thể được sử dụng bên trong Async block. Từ khóa Await làm JavaScript chờ cho đến khi promise trả về kết quả. Chú ý rằng nó chỉ làm cho async function block và chờ chứ không phải là cả chương trình.
+
+
+
+## Libuv
+
+
+
+Thư viện hỗ trợ đa nền tảng tập trung vào asynchronous I/O, chủ yếu được phát triển để sử dụng bởi Node.js
