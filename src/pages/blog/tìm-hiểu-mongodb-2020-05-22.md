@@ -11,107 +11,68 @@ tags:
 ---
 **MongoDB** là một cơ sở dữ liệu mã nguồn mở, đa nền tảng. NoSQL: None-Relational SQL (Không có quan hệ) được viết bằng C++. MongoDB hướng đối tượng, đơn giản, linh động và có thể mở rộng. MongoDB lưu trữ dự liệu theo dạng collection thay vì table như trên MySQL. MongoDB sử dụng JSON hoặc BSON document để lưu trữ dữ liệu. Các collection này là một tập hợp của các document có các field được biểu diễn theo cặp key: value giống như JSON.
 
-
-
 **NoSQL**: None-Relational SQL
 
 **JSON**: JavaScript Object Notation
 
-**BSON: Binary JSON**
+**BSON**: Binary JSON
 
-**RDBMS** 
+**RDBMS** : Relational database management system
 
-**ACDI**
+**ACDI**: (Atomic, Consistency, Isolation, Durability)
 
 Các thuật ngữ hay sử dụng trong MongoDB
 
-_id – Là trường bắt buộc có trong mỗi document. Trường _id đại diện cho một giá trị duy nhất trong document MongoDB
+**_id** – Là trường bắt buộc có trong mỗi document. Trường **_id** đại diện cho một giá trị duy nhất trong document MongoDB
 
-Collection – Là nhóm của nhiều document trong MongoDB
+**Collection** – Là nhóm của nhiều document trong MongoDB
 
-Cursor – Đây là một con trỏ đến tập kết quả của một truy vấn
+**Cursor** – Đây là một con trỏ đến tập kết quả của một truy vấn
 
-Document – Một bản ghi thuộc một Collection thì được gọi là một Document
+**Document** – Một bản ghi thuộc một Collection thì được gọi là một Document
 
-Field 
-
-
-
-
+**Field** – Một cặp bao gồm key : value
 
 ## Ưu và nhược điểm của MongoDB
 
 **Ưu điểm của MongoDB**
 
-Document oriented
-
-Hiệu suất cao
-
-Tính sẵn sàng cao – Nhân rộng
-
-Khả năng mở rộng cao – Sharding
-
-Năng động – Không có lược đồ cứng nhắc.
-
-Linh hoạt – thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
-
-Dữ liệu không đồng nhất
-
-Không joins
-
-Phân phối được
-
-Biểu diễn dữ liệu trong JSON hoặc BSON
-
-Hỗ trợ không gian địa lý (Geospatial)
-
-Tích hợp dễ dàng với BigData Hadoop
-
-Ngôn ngữ truy vấn dựa trên tài liệu mạnh mẽ như SQL
-
-Các bản phân phối cloud như AWS, Microsoft, RedHat, dotCloud và SoftLayer, v.v … Trên thực tế, MongoDB được xây dựng cho cloud. Kiến trúc mở rộng quy mô tự nhiên của nó, được kích hoạt bởi sharding, liên kết tốt với quy mô và sự nhanh nhẹn có được nhờ điện toán đám mây.
-
-
-
-
+* Document oriented
+* Hiệu suất cao
+* Tính sẵn sàng cao – Nhân rộng
+* Khả năng mở rộng cao – Sharding
+* Năng động – Không có lược đồ cứng nhắc.
+* Linh hoạt – thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
+* Dữ liệu không đồng nhất
+* Không joins
+* Phân phối được
+* Biểu diễn dữ liệu trong JSON hoặc BSON
+* Hỗ trợ không gian địa lý (Geospatial)
+* Tích hợp dễ dàng với BigData Hadoop
+* Ngôn ngữ truy vấn dựa trên tài liệu mạnh mẽ như SQL
+* Các bản phân phối cloud như AWS, Microsoft, RedHat, dotCloud và SoftLayer, v.v … Trên thực tế, MongoDB được xây dựng cho cloud. Kiến trúc mở rộng quy mô tự nhiên của nó, được kích hoạt bởi sharding, liên kết tốt với quy mô và sự nhanh nhẹn có được nhờ điện toán đám mây.
 
 **Nhược điểm của MongoDB**
 
-Một nhược điểm của NoSQL là hầu hết các giải pháp đều không tuân thủ ACID mạnh mẽ (Atomic, Consistency, Isolation, Durability) như các hệ thống RDBMS được thiết lập tốt hơn.
+* Một nhược điểm của NoSQL là hầu hết các giải pháp đều không tuân thủ ACID mạnh mẽ (Atomic, Consistency, Isolation, Durability) như các hệ thống RDBMS được thiết lập tốt hơn.
+* Giao dịch phức tạp
+* Không có chức năng hoặc thủ tục lưu trữ tồn tại nơi bạn có thể liên kết logic
 
-Giao dịch phức tạp
+**Tốt cho**_:_
 
-Không có chức năng hoặc thủ tục lưu trữ tồn tại nơi bạn có thể liên kết logic
+1. Danh mục sản phẩm thương mại điện tử.
+2. Blog và quản lý nội dung.
+3. Phân tích thời gian thực và ghi nhật ký tốc độ cao, bộ nhớ đệm và khả năng mở rộng cao.
+4. Quản lý cấu hình.
+5. Duy trì dữ liệu dựa trên vị trí – Dữ liệu không gian địa lý.
+6. Các trang web di động và mạng xã hội.
+7. Phát triển yêu cầu dữ liệu.
+8. Mục tiêu không chặt chẽ – thiết kế có thể thay đổi theo thời gian.
 
-Tốt cho:
+**Không tốt cho**:
 
-Danh mục sản phẩm thương mại điện tử.
-
-Blog và quản lý nội dung.
-
-Phân tích thời gian thực và ghi nhật ký tốc độ cao, bộ nhớ đệm và khả năng mở rộng cao.
-
-Quản lý cấu hình.
-
-Duy trì dữ liệu dựa trên vị trí – Dữ liệu không gian địa lý.
-
-Các trang web di động và mạng xã hội.
-
-Phát triển yêu cầu dữ liệu.
-
-Mục tiêu không chặt chẽ – thiết kế có thể thay đổi theo thời gian.
-
- 
-
-
-
-Không tốt cho:
-
-
-
-Hệ thống giao dịch cao hoặc nơi mô hình dữ liệu được thiết kế trước.
-
-Hệ thống kết hợp chặt chẽ.
+1. Hệ thống giao dịch cao hoặc nơi mô hình dữ liệu được thiết kế trước.
+2. Hệ thống kết hợp chặt chẽ.
 
 ## MongoDB hoạt động như thế nào?
 
@@ -127,11 +88,7 @@ Nguồn: viblo.asia
 
 
 
-## Khi nào nên sử dụng MongoDB ?
-
-
-
-Các công cụ quản trị:
+**Các công cụ quản trị:**
 
 Robo3T, Studio 3T, Navicat Premium 12
 
@@ -142,8 +99,6 @@ Mac / Linux
 Window
 
 ## Các lệnh thường sử dụng
-
-
 
 ## Lời kết
 
