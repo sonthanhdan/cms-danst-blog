@@ -93,4 +93,25 @@ Một số framework Node.js phổ biến:
 
 **Socket.io** , một công cụ giao tiếp thời gian thực để xây dựng các ứng dụng mạng.
 
-**Sails.js** :  kế thừa mô hình MVC (Model-View-Controller) giống như Laravel được viết dựa trên Express.js
+**Sails.js** :  kế thừa mô hình MVC (Model-View-Controller) giống như Laravel được viết dựa trên Express.js 
+
+
+
+**Một số lưu ý cho ứng dụng Node.js an toàn**
+
+* Chống DOS, DDOS hay brute-force mật khẩu
+
+Rate limit request
+
+```
+const express = require('express');const rateLimit = require("express-rate-limit");const app = express();const limiter = rateLimit({  windowMs: 15 * 60 * 1000, // 15 minutes  max: 100 // limit each IP to 100 requests per windowMs});app.use(limiter);
+```
+
+* Lọc dữ liệu người dùng gửi lên server
+* Sử dụng biến môi trường (.env)
+* Dùng brcrypt hoặc pbkdf2 để băm mật khẩu
+* Giới hạn kích thước payload request gửi lên server
+
+Tài liệu tham khảo
+
+https://html5hive.org/wp-content/uploads/2018/04/Learn-and-Master-Nodejs.pdf
