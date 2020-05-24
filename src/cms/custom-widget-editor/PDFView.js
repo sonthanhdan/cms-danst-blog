@@ -3,7 +3,6 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 import { renderToString } from 'react-dom/server'
-import samplePDF from './sample.pdf';
 
 function PDFViewContainer(props) {
     const [numPages, setNumPages] = useState(null);
