@@ -3,7 +3,7 @@ templateKey: blog-post
 title: BASH cheat sheet
 date: 2020-05-20T13:50:59.981Z
 author: Danst
-description: 'BASH cheat sheet tổng hợp các cú pháp shell, command hay sử dụng trong linux'
+description: BASH cheat sheet tổng hợp các cú pháp shell, command hay sử dụng trong linux
 featuredpost: true
 featuredimage: /img/bash.jpeg
 tags:
@@ -19,15 +19,17 @@ find /dev/folder/ -name abc-*.bin | sort | tail -n1
 
 ## Example: git-merge-branches.sh
 
-\#!/usr/bin/env bash -xe
 
-\# Configuration 
 
-REPO_DIR=/path/to/your/repository
+<pre style="display:block;overflow-x:auto;padding:0.5em;background:#23241f;color:#f8f8f2" data-reactroot=""><code><span style="color:#75715e">#!/usr/bin/env bash -xe</span>
 
-FEATURE_BRANCH=FEATURE-XX
+<span style="color:#75715e"># Configuration </span>
 
-TARGET_BRANCH=FEATURE-XX-DEV
+<span style="color:#66d9ef">REPO_DIR</span>=/path/to/your/repository
+
+<span style="color:#66d9ef">FEATURE_BRANCH</span>=FEATURE-XX
+
+<span style="color:#66d9ef">TARGET_BRANCH</span>=FEATURE-XX-DEV
 
 BRANCHES=(
 
@@ -45,33 +47,33 @@ BRANCHES=(
 
 )
 
-cd $REPO_DIR;
+cd <span style="color:#e6db74">$REPO_DIR</span>;
 
-\# update the repo
+<span style="color:#75715e"># update the repo</span>
 
 git fetch --prune
 
-git checkout $FEATURE_BRANCH
+git checkout <span style="color:#e6db74">$FEATURE_BRANCH</span>
 
-\# checkout to the target branch
+<span style="color:#75715e"># checkout to the target branch</span>
 
-if \[ -z "\`git branch --list $TARGET_BRANCH\`" ]; then
+<span style="color:#f92672">if</span> [ -z <span style="color:#e6db74">&quot;`git branch --list <span style="color:#e6db74">$TARGET_BRANCH</span>`&quot;</span> ]; then
 
-   git checkout -b $TARGET_BRANCH
+   git checkout -b <span style="color:#e6db74">$TARGET_BRANCH</span>
 
 fi
 
-\# merge all branches into the target branch
+<span style="color:#75715e"># merge all branches into the target branch</span>
 
-for branch in "${BRANCHES\[@]}"
+<span style="color:#f92672">for</span> branch <span style="color:#f92672">in</span> <span style="color:#e6db74">&quot;<span style="color:#e6db74">${BRANCHES\[@]}</span>&quot;</span>
 
-do
+<span style="color:#f92672">do</span>
 
-   git merge $branch --no-edit
+   git merge <span style="color:#e6db74">$branch</span> --no-<span style="color:#e6db74">edit</span>
 
 done
 
-echo "DONE SUCCESSFULLY!"
+echo <span style="color:#e6db74">&quot;DONE SUCCESSFULLY!&quot;</span></code></pre>
 
 ## Creating branch
 
@@ -120,8 +122,6 @@ git remote prune origin // delete local remote tracking
 git branch -d $branchname // delete local
 
 git push origin --delete :$branchname // delete remote
-
-
 
 ## Rebase your changes on top of the remote master
 
@@ -433,7 +433,7 @@ $ cat pom.xml | sed -e 's,<.*>,\_\_TAG\_\_,g'
 
 Nếu là biểu thức chính quy khác (regular expression) thì có option để ưu tiên tìm chuỗi ngắn nhất tương ứng với mẫu nhưng vì trong sed không có nên ta làm như sau:
 
-$ cat pom.xml | sed -e 's,<\[^>]*>,\_\_TAG\_\_,g'
+$ cat pom.xml | sed -e 's,<[^>]*>,\_\_TAG\_\_,g'
 
 Lưu ý là sau khi replace 1 file bằng sed vd như file input.txt, không được phép xuất thành file input.txt !
 
@@ -543,20 +543,19 @@ done
 
 done
 
-
-
 ## Conditional execution
 
 ```
-git commit && git pushgit commit || echo "Commit failed"
+git commit && git push
+git commit || echo "Commit failed"
 ```
-
-
 
 ## Reading lines
 
 ```
-cat file.txt | while read line; doecho $linedone
+cat file.txt | while read line; do
+echo $line
+done
 ```
 
 ## Arguments
@@ -580,14 +579,6 @@ $!	PID of last background task
 $$	PID of shell
 
 $0	Filename of the shell script
-
-
-
-
-
-
-
-
 
 ## Tài liệu tham khảo
 
