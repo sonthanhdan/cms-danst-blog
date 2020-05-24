@@ -14,6 +14,7 @@ const renderBlockCode = (block) => {
         <SyntaxHighlighter
             language={_language}
             style={monokaiSublime}
+            showLineNumbers={true}
         >
             {codeString}
         </SyntaxHighlighter>
