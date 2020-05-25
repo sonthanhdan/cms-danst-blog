@@ -13,74 +13,22 @@ tags:
 ---
 ## **Tìm file trong thư mục và sắp**
 
-```
+```shell
 find /dev/folder/ -name abc-*.bin | sort | tail -n1
 ```
 
 ## Example: git-merge-branches.sh
 
-<pre style="display:block;overflow-x:auto;padding:0.5em;background:#23241f;color:#f8f8f2" data-reactroot=""><code style="float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
-</span><span class="react-syntax-highlighter-line-number">2
-</span><span class="react-syntax-highlighter-line-number">3
-</span><span class="react-syntax-highlighter-line-number">4
-</span><span class="react-syntax-highlighter-line-number">5
-</span><span class="react-syntax-highlighter-line-number">6
-</span><span class="react-syntax-highlighter-line-number">7
-</span><span class="react-syntax-highlighter-line-number">8
-</span><span class="react-syntax-highlighter-line-number">9
-</span><span class="react-syntax-highlighter-line-number">10
-</span><span class="react-syntax-highlighter-line-number">11
-</span><span class="react-syntax-highlighter-line-number">12
-</span><span class="react-syntax-highlighter-line-number">13
-</span><span class="react-syntax-highlighter-line-number">14
-</span><span class="react-syntax-highlighter-line-number">15
-</span><span class="react-syntax-highlighter-line-number">16
-</span><span class="react-syntax-highlighter-line-number">17
-</span><span class="react-syntax-highlighter-line-number">18
-</span><span class="react-syntax-highlighter-line-number">19
-</span><span class="react-syntax-highlighter-line-number">20
-</span><span class="react-syntax-highlighter-line-number">21
-</span><span class="react-syntax-highlighter-line-number">22
-</span><span class="react-syntax-highlighter-line-number">23
-</span><span class="react-syntax-highlighter-line-number">24
-</span><span class="react-syntax-highlighter-line-number">25
-</span><span class="react-syntax-highlighter-line-number">26
-</span><span class="react-syntax-highlighter-line-number">27
-</span><span class="react-syntax-highlighter-line-number">28
-</span><span class="react-syntax-highlighter-line-number">29
-</span><span class="react-syntax-highlighter-line-number">30
-</span><span class="react-syntax-highlighter-line-number">31
-</span><span class="react-syntax-highlighter-line-number">32
-</span><span class="react-syntax-highlighter-line-number">33
-</span><span class="react-syntax-highlighter-line-number">34
-</span><span class="react-syntax-highlighter-line-number">35
-</span><span class="react-syntax-highlighter-line-number">36
-</span><span class="react-syntax-highlighter-line-number">37
-</span><span class="react-syntax-highlighter-line-number">38
-</span><span class="react-syntax-highlighter-line-number">39
-</span><span class="react-syntax-highlighter-line-number">40
-</span><span class="react-syntax-highlighter-line-number">41
-</span><span class="react-syntax-highlighter-line-number">42
-</span><span class="react-syntax-highlighter-line-number">43
-</span><span class="react-syntax-highlighter-line-number">44
-</span><span class="react-syntax-highlighter-line-number">45
-</span><span class="react-syntax-highlighter-line-number">46
-</span><span class="react-syntax-highlighter-line-number">47
-</span><span class="react-syntax-highlighter-line-number">48
-</span><span class="react-syntax-highlighter-line-number">49
-</span><span class="react-syntax-highlighter-line-number">50
-</span><span class="react-syntax-highlighter-line-number">51
-</span><span class="react-syntax-highlighter-line-number">52
-</span><span class="react-syntax-highlighter-line-number">53
-</span></code><code><span style="color:#75715e">#!/usr/bin/env bash -xe</span>
+```shell
+#!/usr/bin/env bash -xe
 
-<span style="color:#75715e"># Configuration </span>
+# Configuration 
 
-<span style="color:#66d9ef">REPO_DIR</span>=/path/to/your/repository
+REPO_DIR=/path/to/your/repository
 
-<span style="color:#66d9ef">FEATURE_BRANCH</span>=FEATURE-XX
+FEATURE_BRANCH=FEATURE-XX
 
-<span style="color:#66d9ef">TARGET_BRANCH</span>=FEATURE-XX-DEV
+TARGET_BRANCH=FEATURE-XX-DEV
 
 BRANCHES=(
 
@@ -98,105 +46,118 @@ BRANCHES=(
 
 )
 
-cd <span style="color:#e6db74">$REPO_DIR</span>;
+cd $REPO_DIR;
 
-<span style="color:#75715e"># update the repo</span>
+# update the repo
 
 git fetch --prune
 
-git checkout <span style="color:#e6db74">$FEATURE_BRANCH</span>
+git checkout $FEATURE_BRANCH
 
-<span style="color:#75715e"># checkout to the target branch</span>
+# checkout to the target branch
 
-<span style="color:#f92672">if</span> [ -z <span style="color:#e6db74">&quot;`git branch --list <span style="color:#e6db74">$TARGET_BRANCH</span>`&quot;</span> ]; then
+if [ -z "`git branch --list $TARGET_BRANCH`" ]; then
 
-   git checkout -b <span style="color:#e6db74">$TARGET_BRANCH</span>
+   git checkout -b $TARGET_BRANCH
 
 fi
 
-<span style="color:#75715e"># merge all branches into the target branch</span>
+# merge all branches into the target branch
 
-<span style="color:#f92672">for</span> branch <span style="color:#f92672">in</span> <span style="color:#e6db74">&quot;<span style="color:#e6db74">${BRANCHES\[@]}</span>&quot;</span>
+for branch in "${BRANCHES\[@]}"
 
-<span style="color:#f92672">do</span>
+do
 
-   git merge <span style="color:#e6db74">$branch</span> --no-<span style="color:#e6db74">edit</span>
+   git merge $branch --no-edit
 
 done
 
-echo <span style="color:#e6db74">&quot;DONE SUCCESSFULLY!&quot;</span></code></pre>
+echo "DONE SUCCESSFULLY!"
+```
 
 ## Creating branch
 
-$> git fetch
-
-$> git checkout {branch}
+```
+git fetch
+git checkout {branch}
+```
 
 ## Creating branch locally
 
+```
 git checkout {branch}
-
 git pull
-
 git checkout -b {branch}
-
 git push -u origin {branch}
+```
 
 ## **Merge locally for reviewing**
 
+```
 git checkout {branch}
-
 git pull
-
 git fetch
-
-git merge origin/**{branch}** --no-commit --no-ff
+git merge origin/{branch} --no-commit --no-ff
+```
 
 ## Cancel merge after reviewing
 
+```
 git merge --abort
+```
 
 ## List existing branches
 
+```
 git branch --list
+```
 
 ## Fetch from remote
 
+```
 git fetch origin
-
 git checkout --track origin/$branchname
+```
 
 ## Delete a branch
 
+```
 git remote prune origin // delete local remote tracking
-
 git branch -d $branchname // delete local
-
 git push origin --delete :$branchname // delete remote
+```
 
 ## Rebase your changes on top of the remote master
 
+```
 git pull --rebase upstream master
+```
 
 ## diff
 
+```
 git diff --stat
+```
 
 ## Searching commit
 
+```
 git log --grep="fixes things"  # search in commit messages
-
-git log -S"window.alert"         # search in code
-
-git log -G"foo.*"                     # search in code (regex)
+git log -S"window.alert"       # search in code
+git log -G"foo.*"              # search in code (regex)
+```
 
 ## Basic command
 
-cat, echo, grep, head, tail, cat, find, sort, uniq, awk, sed, seq, wc, curl
+**cat, echo, grep, head, tail, cat, find, sort, uniq, awk, sed, seq, wc, curl**
 
 Tôi liệt kê những option thường dùng khi viết Shell script để mọi người có thể xem ý nghĩa của từng command.
 
 Command	Ý nghĩa
+
+```
+
+```
 
 echo -n hoge	Không xuống dòng ở cuối cùng
 
