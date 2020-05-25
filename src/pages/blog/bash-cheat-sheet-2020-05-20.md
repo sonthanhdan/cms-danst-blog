@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: BASH cheat sheet
-date: 2020-05-20T13:50:59.981Z
+date: 2020-05-25T08:32:56.832Z
 author: Danst
 description: BASH cheat sheet tổng hợp các cú pháp shell, command hay sử dụng trong linux
 featuredpost: true
