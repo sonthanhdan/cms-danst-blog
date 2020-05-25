@@ -59,7 +59,7 @@ npx (npm package executor) là một công cụ giúp bạn execute các package
 
 Cài đặt: 
 
-```shell
+```
 npm install -g npx
 ```
 
