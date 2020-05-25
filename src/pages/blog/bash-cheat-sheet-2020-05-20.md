@@ -13,13 +13,13 @@ tags:
 ---
 ## **Tìm file trong thư mục và sắp**
 
-```tcsh
+```
 find /dev/folder/ -name abc-*.bin | sort | tail -n1
 ```
 
 ## Example: git-merge-branches.sh
 
-```ignore
+```
 #!/usr/bin/env bash -xe
 
 # Configuration 
@@ -77,14 +77,14 @@ echo "DONE SUCCESSFULLY!"
 
 ## Creating branch
 
-```tcsh
+```
 git fetch
 git checkout {branch}
 ```
 
 ## Creating branch locally
 
-```tcsh
+```
 git checkout {branch}
 git pull
 git checkout -b {branch}
@@ -93,7 +93,7 @@ git push -u origin {branch}
 
 ## **Merge locally for reviewing**
 
-```tcsh
+```
 git checkout {branch}
 git pull
 git fetch
@@ -102,46 +102,48 @@ git merge origin/{branch} --no-commit --no-ff
 
 ## Cancel merge after reviewing
 
-```tcsh
+```
 git merge --abort
 ```
 
 ## List existing branches
 
-```tcsh
+```
 git branch --list
 ```
 
 ## Fetch from remote
 
-```tcsh
+```
 git fetch origin
 git checkout --track origin/$branchname
 ```
 
 ## Delete a branch
 
-```tcsh
+```
 git remote prune origin // delete local remote tracking
 git branch -d $branchname // delete local
 git push origin --delete :$branchname // delete remote
 ```
 
+
+
 ## Rebase your changes on top of the remote master
 
-```tcsh
+```
 git pull --rebase upstream master
 ```
 
 ## diff
 
-```tcsh
+```
 git diff --stat
 ```
 
 ## Searching commit
 
-```tcsh
+```
 git log --grep="fixes things"  # search in commit messages
 git log -S"window.alert"       # search in code
 git log -G"foo.*"              # search in code (regex)
@@ -487,7 +489,7 @@ Cách sử dụng thường dùng:
 
 Ví dụ	Ý nghĩa
 
-```tcsh
+```
 awk '{print $2}'	# In column thứ 2, phân cách bởi khoảng trắng
 
 awk '{print $NF}'	# In column cuối cùng, phân cách bởi khoảng trắng
@@ -501,7 +503,7 @@ awk '{sum += $5} END {print sum}'	# Xuất tổng giá trị của trường th�
 
 ### Script search file document works
 
-```tcsh
+```
 #!/bin/bash -e
 
 ROOT=$1
@@ -551,14 +553,14 @@ done
 
 ## Conditional execution
 
-```chs
+```
 git commit && git push
 git commit || echo "Commit failed"
 ```
 
 ## Reading lines
 
-```tcsh
+```
 cat file.txt | while read line; do
 echo $line
 done
