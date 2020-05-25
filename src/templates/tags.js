@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from 'components/Layout'
 import { removeAccents } from '../helpers'
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 class TagRoute extends React.Component {
   render() {

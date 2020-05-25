@@ -70,6 +70,14 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'monokai',
+              lineNumbers: true
+            }
+          },
+          {
             resolve: 'gatsby-remark-relative-images',
             options: {
               name: 'uploads',
