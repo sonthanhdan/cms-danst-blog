@@ -77,14 +77,14 @@ echo "DONE SUCCESSFULLY!"
 
 ## Creating branch
 
-```
+```shell
 git fetch
 git checkout {branch}
 ```
 
 ## Creating branch locally
 
-```
+```shell
 git checkout {branch}
 git pull
 git checkout -b {branch}
@@ -93,7 +93,7 @@ git push -u origin {branch}
 
 ## **Merge locally for reviewing**
 
-```
+```shell
 git checkout {branch}
 git pull
 git fetch
@@ -102,26 +102,26 @@ git merge origin/{branch} --no-commit --no-ff
 
 ## Cancel merge after reviewing
 
-```
+```shell
 git merge --abort
 ```
 
 ## List existing branches
 
-```
+```shell
 git branch --list
 ```
 
 ## Fetch from remote
 
-```
+```shell
 git fetch origin
 git checkout --track origin/$branchname
 ```
 
 ## Delete a branch
 
-```
+```shell
 git remote prune origin // delete local remote tracking
 git branch -d $branchname // delete local
 git push origin --delete :$branchname // delete remote
@@ -129,19 +129,19 @@ git push origin --delete :$branchname // delete remote
 
 ## Rebase your changes on top of the remote master
 
-```
+```shell
 git pull --rebase upstream master
 ```
 
 ## diff
 
-```
+```shell
 git diff --stat
 ```
 
 ## Searching commit
 
-```
+```shell
 git log --grep="fixes things"  # search in commit messages
 git log -S"window.alert"       # search in code
 git log -G"foo.*"              # search in code (regex)
@@ -487,7 +487,7 @@ Cách sử dụng thường dùng:
 
 Ví dụ	Ý nghĩa
 
-```
+```shell
 awk '{print $2}'	# In column thứ 2, phân cách bởi khoảng trắng
 
 awk '{print $NF}'	# In column cuối cùng, phân cách bởi khoảng trắng
@@ -501,7 +501,7 @@ awk '{sum += $5} END {print sum}'	# Xuất tổng giá trị của trường th�
 
 ### Script search file document works
 
-```
+```shell
 #!/bin/bash -e
 
 ROOT=$1
@@ -553,14 +553,14 @@ done
 
 ## Conditional execution
 
-```
+```shell
 git commit && git push
 git commit || echo "Commit failed"
 ```
 
 ## Reading lines
 
-```
+```shell
 cat file.txt | while read line; do
 echo $line
 done
