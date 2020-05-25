@@ -9,7 +9,7 @@ featuredimage: /img/git.png
 tags:
   - git-flow
 ---
-[**Git**](https://vi.wikipedia.org/wiki/Git_(ph%E1%BA%A7n_m%E1%BB%81m)) là một hệ thống kiểm soát phiên bản mã nguồn mở và miễn phí, được Linus Torvalds tạo ra vào năm 2005. Không giống như các hệ thống kiểm soát phiên bản tập trung cũ hơn như SVN và CVS, Git được phân phối: mọi nhà phát triển đều có lịch sử đầy đủ về kho lưu trữ mã của họ. Điều này làm cho bản sao ban đầu của kho lưu trữ chậm hơn, nhưng các hoạt động tiếp theo như cam kết, đổ lỗi, khác biệt, hợp nhất và đăng nhập nhanh hơn đáng kể.
+**[Git](https://vi.wikipedia.org/wiki/Git_(ph%E1%BA%A7n_m%E1%BB%81m))** là một hệ thống kiểm soát phiên bản mã nguồn mở và miễn phí, được Linus Torvalds tạo ra vào năm 2005. Không giống như các hệ thống kiểm soát phiên bản tập trung cũ hơn như SVN và CVS, Git được phân phối: mọi nhà phát triển đều có lịch sử đầy đủ về kho lưu trữ mã của họ. Điều này làm cho bản sao ban đầu của kho lưu trữ chậm hơn, nhưng các hoạt động tiếp theo như cam kết, đổ lỗi, khác biệt, hợp nhất và đăng nhập nhanh hơn đáng kể.
 
 Git cũng hỗ trợ tuyệt vời cho việc phân nhánh, hợp nhất và viết lại lịch sử kho lưu trữ, điều này dẫn đến nhiều quy trình và công cụ sáng tạo và mạnh mẽ. Yêu cầu kéo là một trong những công cụ phổ biến như vậy cho phép các nhóm cộng tác trên các nhánh Git và xem xét hiệu quả mã của nhau. Git là hệ thống kiểm soát phiên bản được sử dụng rộng rãi nhất trên thế giới hiện nay và được coi là tiêu chuẩn hiện đại để phát triển phần mềm.
 
@@ -31,7 +31,7 @@ Bắt đầu một tính năng
 
 Bình thường đối với git
 
-```
+```shell
 git checkout master
 git fetch origin
 git reset --hard origin/mastergit checkout -b new-feature
@@ -43,7 +43,7 @@ git push -u origin new-feature
 
 Với git flow
 
-```
+```shell
 git flow feature start my-feature
 git status
 git add <some-file>
