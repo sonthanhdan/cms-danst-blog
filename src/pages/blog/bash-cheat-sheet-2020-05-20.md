@@ -19,7 +19,7 @@ find /dev/folder/ -name abc-*.bin | sort | tail -n1
 
 ## Example: git-merge-branches.sh
 
-```tcsh
+```ignore
 #!/usr/bin/env bash -xe
 
 # Configuration 
@@ -551,7 +551,7 @@ done
 
 ## Conditional execution
 
-```tcsh
+```chs
 git commit && git push
 git commit || echo "Commit failed"
 ```
