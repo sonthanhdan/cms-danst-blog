@@ -155,10 +155,6 @@ Tôi liệt kê những option thường dùng khi viết Shell script để m�
 
 Command	Ý nghĩa
 
-```
-
-```
-
 echo -n hoge	Không xuống dòng ở cuối cùng
 
 grep -v hoge	Output dòng không chứa hoge (ngược với lệnh grep thông thường)
@@ -177,9 +173,9 @@ sort -k 2	sắp xếp theo key với key là cột thứ 2 từ trái qua, phân
 
 uniq -c	Hiển thị số dòng duy nhất sau khi đã loại bỏ trùng lặp
 
-wc -l sample.txt	Hiển thị số dòng trong sample.txt
+**wc -l sample.txt**	Hiển thị số dòng trong sample.txt
 
-curl -o file.dat http:...	Lưu trữ nội dung URL chỉ định vào file.dat
+**curl -o** file.dat http:...	Lưu trữ nội dung URL chỉ định vào file.dat
 
 Có thể dùng pipe để chuyển kết quả của command này thành input của command kế tiếp.
 
@@ -491,23 +487,26 @@ Cách sử dụng thường dùng:
 
 Ví dụ	Ý nghĩa
 
-awk '{print $2}'	In column thứ 2, phân cách bởi khoảng trắng
+```
+awk '{print $2}'	# In column thứ 2, phân cách bởi khoảng trắng
 
-awk '{print $NF}'	In column cuối cùng, phân cách bởi khoảng trắng
+awk '{print $NF}'	# In column cuối cùng, phân cách bởi khoảng trắng
 
-awk '{print $(NF-2)}'	In column thứ 2 từ cuối lên, phân cách bởi khoảng trắng
+awk '{print $(NF-2)}'	# In column thứ 2 từ cuối lên, phân cách bởi khoảng trắng
 
-awk '{sum += $5} END {print sum}'	Xuất tổng giá trị của trường thứ 5 của đầu vào đã nhận
+awk '{sum += $5} END {print sum}'	# Xuất tổng giá trị của trường thứ 5 của đầu vào đã nhận
+```
 
-## related
+## Related
 
-Script search file docuworks
+### Script search file document works
 
-\#!/bin/bash -e
+```
+#!/bin/bash -e
 
 ROOT=$1
 
-\[ -z "$ROOT" ] && echo "Usage: $0 BLOB_ROOT_DIR" && exit 1
+[ -z "$ROOT" ] && echo "Usage: $0 BLOB_ROOT_DIR" && exit 1
 
 DOMAINS=$(ls $ROOT)
 
@@ -519,7 +518,7 @@ FOUND=0
 
 for year in $(ls $ROOT/$domain/$app); do
 
-\[ "$year" = "size" ] && continue
+[ "$year" = "size" ] && continue
 
 for month in $(ls $ROOT/$domain/$app/$year); do
 
@@ -531,7 +530,7 @@ echo $blobid | grep -q "_" && continue
 
 FILE=$ROOT/$domain/$app/$year/$month/$day/$blobid
 
-if \[ "$(hexdump -n4 -e '/1 "%02X"' $FILE)" = "600E8201" ]; then
+if [ "$(hexdump -n4 -e '/1 "%02X"' $FILE)" = "600E8201" ]; then
 
 echo "Found: $FILE";
 
@@ -540,20 +539,17 @@ FOUND=$(($FOUND + 1))
 fi
 
 done
-
 done
-
 done
-
 done
 
 FILES=$(find $ROOT/$domain/$app -type f | wc -l)
-
 echo "$domain/$app total: $FILES found: $FOUND"
-
 done
-
 done
+```
+
+
 
 ## Conditional execution
 
