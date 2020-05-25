@@ -26,10 +26,7 @@ ES6 là một thế hệ tiếp theo của JavaScript, ủy ban kỹ thuật ecm
 
 Hỗ trợ khai báo hằng số còn được gọi là "các biến không thay đổi"), tức là các biến không thể được gán lại nội dung mới;
 
-Ex: 
-
-ES5:
-
+```javascript
 Object.defineProperty(typeof global === "object" ? global : window, "PI", {
 
    value:        3.141593,
@@ -49,29 +46,27 @@ ES6:
 const PI = 3.141593
 
 PI > 3.0
+```
 
-**Arrows
- function** : là một cú pháp mới trong ES6 cho bạn định nghĩa function Bạn có thể tạo hàm bằng cách sử dụng dấu mũi tên =>.
 
-**Classes**
-: định nghĩa trực quan OOP hơn với bảng mẫu OOP-style
+
+**Arrows  function** : là một cú pháp mới trong ES6 cho bạn định nghĩa function Bạn có thể tạo hàm bằng cách sử dụng dấu mũi tên =>.
+
+**Classes** : định nghĩa trực quan OOP hơn với bảng mẫu OOP-style
 
 **Enhanced object literals**  (pending todo research)
 
 **Template strings** : cú pháp mới cho phép tạo chuổi multiline. Sử dụng linh hoạt các biến hoặc phương thức không cần phải mất công cộng chuỗi nữa, code rõ ràng hơn nhiều.
 
-**Destructuring Assignment**: cú pháp giúp ta có thể khởi tạo các biến từ một mảng bằng một dòng code đơn giản. Tính năng này khá giống với hàm list trong PHP. Nghĩa là nó sẽ phân các giá trị trong mảng vào các biến theo thứ tự hay nói cách khác nó sẽ
- tách các phần tử của Array hoặc Object thành nhiều biến chỉ bằng một đoạn code duy nhất.
+**Destructuring Assignment**: cú pháp giúp ta có thể khởi tạo các biến từ một mảng bằng một dòng code đơn giản. Tính năng này khá giống với hàm list trong PHP. Nghĩa là nó sẽ phân các giá trị trong mảng vào các biến theo thứ tự hay nói cách khác nó sẽ  tách các phần tử của Array hoặc Object thành nhiều biến chỉ bằng một đoạn code duy nhất.
 
-**Default Parameter + Rest Parameter + Spread
- Parameter**
+**Default Parameter + Rest Parameter + Spread  Parameter**
 
 **Default Parameter**: gán giá trị mặc định cho các tham số.
 
 **Rest Parameter**: tham số còn lại, Tổng hợp các đối số còn lại thành tham số duy nhất của các hàm
 
-**Spread
- Parameter**: cho phép chuyển đổi một chuỗi thành nhiều argument
+**Spread  Parameter**: cho phép chuyển đổi một chuỗi thành nhiều argument
 
 **Block – Scoped Constructs Let and Const**
 
@@ -87,6 +82,7 @@ Biến const : dùng để khai báo một hằng số - là một giá trị kh
 
 **Object Property Assignment**: Hàm mới để gán các thuộc tính vô số của một hoặc nhiều đối tượng nguồn vào một đối tượng đích.
 
+```javascript
 var dest = { quux: 0 }
 
 var src1 = { foo: 1, bar: 2 }
@@ -94,21 +90,27 @@ var src1 = { foo: 1, bar: 2 }
 var src2 = { foo: 3, baz: 4 }
 
 Object.assign(dest, src1, src2)
+```
 
 **Array Element Finding**: hàm mới cho phép tìm kiếm các phần tử trong mảng
 
+```javascript
 \[ 1, 3, 4, 2 ].find(x => x > 3) // 4
 
 \[ 1, 3, 4, 2 ].findIndex(x => x > 3) // 2
+```
 
 **String Repeating**: Chức năng lặp lại chuỗi mới
 
+```javascript
 "foo".repeat(3) // ES6
 
 Array(3 + 1).join("foo"); // ES5
+```
 
 **String Searching**
 
+```javascript
 "hello".startsWith("ello", 1) // true
 
 "hello".endsWith("hell", 4)   // true
@@ -118,6 +120,7 @@ Array(3 + 1).join("foo"); // ES5
 "hello".includes("ell", 1)    // true
 
 "hello".includes("ell", 2)    // false
+```
 
 **Iterators + for..of**  (pending todo research)
 
