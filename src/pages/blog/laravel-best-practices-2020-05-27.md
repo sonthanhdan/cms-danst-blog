@@ -11,7 +11,7 @@ tags:
 ---
 **Single responsibility principle** (Nguyên tắc trách nhiệm duy nhất): Mỗi lớp chỉ nên chịu một trách nhiệm cụ thể
 
-```php
+```
 <?php
 
 // Bad:
@@ -46,13 +46,11 @@ public function getFullNameShort()
 }
 ```
 
-
-
 **Fat models, skinny controllers** (Tạm dịch là người mẫu béo, người điều khiển gầy)
 
 Đặt tất cả logic liên quan đến DB vào các mô hình Eloquent hoặc vào Repository nếu bạn đang sử dụng Query Builder hoặc raw SQL queries.
 
-```php
+```
 // Bad:
 
 public function index()
@@ -85,8 +83,6 @@ class Client extends Model
     }
 }
 ```
-
-
 
 **Validation**: Nên chuyển validation từ controllers vào Request classes.
 
@@ -157,15 +153,11 @@ class ArticleService
 }
 ```
 
-
-
 **Don't repeat yourself (DRY)**: (Đừng lặp lại code)
 
 Nên sử dụng Eloquent thay cho Query Builder and raw SQL queries. Dùng collections thay cho arrays
 
 Không nên thực thi query trong Blade
-
-
 
 ```
 // Bad (for 100 users, 101 DB queries will be executed):
@@ -182,11 +174,7 @@ $users = User::with('profile')->get();
 @endforeach
 ```
 
-
-
 **Nên comment trong code, sẽ tốt hơn nếu đặt tên phương thức và tên biến sát nghĩa**
-
-
 
 ```
 // Bad:
@@ -202,11 +190,7 @@ if (count((array) $builder->getQuery()->joins) > 0)
 if ($this->hasJoins())
 ```
 
-
-
 **Không đặt JS và CSS trong các Blade template và không đặt bất kỳ HTML nào trong các class PHP**
-
-
 
 ```
 // Bad:
@@ -223,11 +207,7 @@ Or
 let article = $('#article').val();
 ```
 
-
-
 **Nên sử dụng config, languages file, constants tránh viết text in code, magic number**
-
-
 
 ```
 // Bad:
@@ -248,11 +228,7 @@ public function isNormal()
 return back()->with('message', __('app.article_added'));
 ```
 
-
-
 **Laravel naming conventions**
-
-
 
 | What                             | How                                                                       | Good                                    | Bad                                                 |
 | -------------------------------- | ------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
@@ -281,11 +257,7 @@ return back()->with('message', __('app.article_added'));
 | Contract (interface)             | adjective or noun                                                         | Authenticatable                         | ~~AuthenticationInterface, IAuthentication~~        |
 | Trait                            | adjective                                                                 | Notifiable                              | ~~NotificationTrait~~                               |
 
-
-
 **Sử dụng cú pháp ngắn hơn và dễ đọc hơn nếu có thể**
-
-
 
 ```
 // Bad:
@@ -298,8 +270,6 @@ $request->input('name');
 session('cart');
 $request->name;
 ```
-
-
 
 | Common syntax                                                          | Shorter and more readable syntax                   |
 | ---------------------------------------------------------------------- | -------------------------------------------------- |
@@ -320,11 +290,7 @@ $request->name;
 | `->select('id', 'name')->get()`                                        | `->get(['id', 'name'])`                            |
 | `->first()->name`                                                      | `->value('name')`                                  |
 
-
-
 **Không nên lấy data trực tiếp trong .env**: Truyền dữ liệu cho các tệp config thay vào đó và sau đó sử dụng hàm config() helper function để sử dụng dữ liệu trong ứng dụng.
-
-
 
 ```
 // Bad:
@@ -339,11 +305,7 @@ $apiKey = env('API_KEY');
 $apiKey = config('api.key');
 ```
 
-
-
 **Testing email into laravel.log** : nếu muốn xem chi tiết nội dung email đã gửi chúng ta có thể set trong .env parameter MAIL_DRIVER=log toàn bộ email được gửi sẽ được ghi vào trong log
-
-
 
 **Don’t create Controllers** : Nếu bạn muốn tạo một route chỉ show thông tin đừng tạo thêm controler thay vào đó chúng ta có thể dùng Route::view() 
 
@@ -364,11 +326,7 @@ Do this with short way
 Route::view('about', 'texts.about');
 ```
 
-
-
 **Sử dụng Blade Directives**: IncludeIf, IncludeWhen, IncludeFirst
-
-
 
 ## Tham khảo
 
