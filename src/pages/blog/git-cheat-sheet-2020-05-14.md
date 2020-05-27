@@ -31,7 +31,7 @@ Bắt đầu một tính năng
 
 Bình thường đối với git
 
-```shell
+```
 git checkout master
 git fetch origin
 git reset --hard origin/mastergit checkout -b new-feature
@@ -43,7 +43,7 @@ git push -u origin new-feature
 
 Với git flow
 
-```shell
+```
 git flow feature start my-feature
 git status
 git add <some-file>
