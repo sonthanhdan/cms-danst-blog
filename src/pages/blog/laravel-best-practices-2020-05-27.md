@@ -11,6 +11,8 @@ tags:
 ---
 **Single responsibility principle** (Nguyên tắc trách nhiệm duy nhất): Mỗi lớp chỉ nên chịu một trách nhiệm cụ thể
 
+Tham khảo thêm về nguyên tắt [SOLID](https://danst.tech/blog/s-o-l-i-d-2020-05-20/)
+
 ```
 <?php
 
@@ -46,9 +48,11 @@ public function getFullNameShort()
 }
 ```
 
+
+
 **Fat models, skinny controllers** (Tạm dịch là người mẫu béo, người điều khiển gầy)
 
-Đặt tất cả logic liên quan đến DB vào các mô hình Eloquent hoặc vào Repository nếu bạn đang sử dụng Query Builder hoặc raw SQL queries.
+Nên đặt tất cả logic liên quan đến DB vào các mô hình Eloquent hoặc vào Repository nếu bạn đang sử dụng Query Builder hoặc raw SQL queries.
 
 ```
 // Bad:
@@ -84,7 +88,7 @@ class Client extends Model
 }
 ```
 
-**Validation**: Nên chuyển validation từ controllers vào Request classes.
+**Validation**: Nên chuyển validation từ controllers vào Request classes. Trông code sẽ nhìn ngon hơn
 
 ```
 // Bad:
@@ -120,7 +124,7 @@ class PostRequest extends Request
 
 **Business logic should be in service class** (Nên chuyển các nghiệp vụ logic vào các lớp service)
 
-Một controller chỉ nên đảm nhiệm một nhiệm vụ, do đó hãy xem xét chuyển các nghiệp vụ logic vào service để code trông gọn và dễ đọc hiểu hơn
+Một controller chỉ nên đảm nhiệm một nhiệm vụ, do đó hãy xem xét chuyển các nghiệp vụ logic vào service để code trông gọn và dễ đọc hiểu hơn. nếu nghiệp vụ phức tạp nên xem xét sử dụng Domain Driven Design patern thao khảo thêm [Tìm hiểu Domain Driven Design (DDD)](https://danst.tech/blog/tim-hieu-domain-driven-design-ddd-2020-05-11/) để code pro hơn
 
 ```
 // Bad:
@@ -155,9 +159,9 @@ class ArticleService
 
 **Don't repeat yourself (DRY)**: (Đừng lặp lại code)
 
-Nên sử dụng Eloquent thay cho Query Builder and raw SQL queries. Dùng collections thay cho arrays
+**Nên sử dụng Eloquent thay cho Query Builder and raw SQL queries. Dùng collections thay cho arrays**
 
-Không nên thực thi query trong Blade
+**Không nên thực thi query trong Blade**
 
 ```
 // Bad (for 100 users, 101 DB queries will be executed):
@@ -232,13 +236,13 @@ return back()->with('message', __('app.article_added'));
 
 | What                             | How                                                                       | Good                                    | Bad                                                 |
 | -------------------------------- | ------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
-| Controller                       | singular                                                                  | ArticleController                       | ~~ArticlesController~~                              |
-| Route                            | plural                                                                    | articles/1                              | ~~article/1~~                                       |
+| Controller                       | singular (Số ít)                                                          | ArticleController                       | ~~ArticlesController~~                              |
+| Route                            | plural (Số nhiều)                                                         | articles/1                              | ~~article/1~~                                       |
 | Named route                      | snake_case with dot notation                                              | users.show_active                       | ~~users.show-active, show-active-users~~            |
-| Model                            | singular                                                                  | User                                    | ~~Users~~                                           |
-| hasOne or belongsTo relationship | singular                                                                  | articleComment                          | ~~articleComments, article_comment~~                |
-| All other relationships          | plural                                                                    | articleComments                         | ~~articleComment, article_comments~~                |
-| Table                            | plural                                                                    | article_comments                        | ~~article_comment, articleComments~~                |
+| Model                            | singular (Số ít)                                                          | User                                    | ~~Users~~                                           |
+| hasOne or belongsTo relationship | singular (Số ít)                                                          | articleComment                          | ~~articleComments, article_comment~~                |
+| All other relationships          | plural (Số nhiều)                                                         | articleComments                         | ~~articleComment, article_comments~~                |
+| Table                            | plural (Số nhiều)                                                         | article_comments                        | ~~article_comment, articleComments~~                |
 | Pivot table                      | singular model names in alphabetical order                                | article_user                            | ~~user_article, articles_users~~                    |
 | Table column                     | snake_case without model name                                             | meta_title                              | ~~MetaTitle; article_meta_title~~                   |
 | Model property                   | snake_case                                                                | $model->created_at                      | ~~$model->createdAt~~                               |
@@ -255,9 +259,15 @@ return back()->with('message', __('app.article_added'));
 | View                             | kebab-case                                                                | show-filtered.blade.php                 | ~~showFiltered.blade.php, show_filtered.blade.php~~ |
 | Config                           | snake_case                                                                | google_calendar.php                     | ~~googleCalendar.php, google-calendar.php~~         |
 | Contract (interface)             | adjective or noun                                                         | Authenticatable                         | ~~AuthenticationInterface, IAuthentication~~        |
-| Trait                            | adjective                                                                 | Notifiable                              | ~~NotificationTrait~~                               |
+| Trait                            | adjective (Tính từ)                                                       | Notifiable                              | ~~NotificationTrait~~                               |
 
-**Sử dụng cú pháp ngắn hơn và dễ đọc hơn nếu có thể**
+
+
+
+
+**Sử dụng cú pháp ngắn hơn và dễ đọc hơn nếu có thể. Laravel hỗ trợ chúng ta các helper có sẵn**
+
+
 
 ```
 // Bad:
@@ -290,7 +300,13 @@ $request->name;
 | `->select('id', 'name')->get()`                                        | `->get(['id', 'name'])`                            |
 | `->first()->name`                                                      | `->value('name')`                                  |
 
+
+
+
+
 **Không nên lấy data trực tiếp trong .env**: Truyền dữ liệu cho các tệp config thay vào đó và sau đó sử dụng hàm config() helper function để sử dụng dữ liệu trong ứng dụng.
+
+
 
 ```
 // Bad:
