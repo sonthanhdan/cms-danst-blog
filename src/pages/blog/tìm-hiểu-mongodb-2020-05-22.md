@@ -37,28 +37,24 @@ Các thuật ngữ hay sử dụng trong MongoDB
 
 **Ưu điểm của MongoDB**
 
-* Document oriented
 * Hiệu suất cao
 * Tính sẵn sàng cao – Nhân rộng
 * Khả năng mở rộng cao – Sharding
-* Năng động – Không có lược đồ cứng nhắc.
 * Linh hoạt – thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
-* Dữ liệu không đồng nhất
 * Không joins
 * Phân phối được
 * Biểu diễn dữ liệu trong JSON hoặc BSON
 * Hỗ trợ không gian địa lý (Geospatial)
 * Tích hợp dễ dàng với BigData Hadoop
 * Ngôn ngữ truy vấn dựa trên tài liệu mạnh mẽ như SQL
-* Các bản phân phối cloud như AWS, Microsoft, RedHat, dotCloud và SoftLayer, v.v … Trên thực tế, MongoDB được xây dựng cho cloud. Kiến trúc mở rộng quy mô tự nhiên của nó, được kích hoạt bởi sharding, liên kết tốt với quy mô và sự nhanh nhẹn có được nhờ điện toán đám mây.
 
 **Nhược điểm của MongoDB**
 
-* Một nhược điểm của NoSQL là hầu hết các giải pháp đều không tuân thủ ACID mạnh mẽ (Atomic, Consistency, Isolation, Durability) như các hệ thống RDBMS được thiết lập tốt hơn.
 * Giao dịch phức tạp
 * Không có chức năng hoặc thủ tục lưu trữ tồn tại nơi bạn có thể liên kết logic
+* Dữ liệu phình to gây tốn bộ nhớ
 
-**Tốt cho**_:_
+**Tốt cho***:*
 
 1. Danh mục sản phẩm thương mại điện tử.
 2. Blog và quản lý nội dung.
@@ -85,8 +81,6 @@ Mỗi khi có một truy vấn dữ liệu, bản ghi được cache (ghi đệm
 Khi có yêu cầu thêm/sửa/xóa bản ghi, để đảm bảo hiệu suất của ứng dụng mặc định MongoDB sẽ chưa cập nhật xuống ổ cứng ngay, mà sau 60 giây MongoDB mới thực hiện ghi toàn bộ dữ liệu thay đổi từ RAM xuống ổ cứng.
 
 Nguồn: viblo.asia
-
-
 
 **Các công cụ quản trị:**
 
