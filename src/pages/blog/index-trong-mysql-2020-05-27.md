@@ -16,13 +16,11 @@ Chỉ mục Index là bảng tra cứu đặc biệt mà Database Search Engine 
 
 **Khi nào cần dùng Index?** 
 
-Khi muốn tăng tốc dộ truy vấn 
-nên lập index của tất cả field trong mệnh đề WHERE, JOIN, ORBER BY và GROUP BY
+Khi muốn tăng tốc dộ truy vấn  nên lập index của tất cả field trong mệnh đề WHERE, JOIN, ORBER BY và GROUP BY
 
 **Khi nào không nên dùng index**
 
-Không nên dùng index trong các bảng nhỏ. Các bảng  thường xuyên có các hoạt động update, insert không đánh index trên các cột có số lượng lớn giá trị null
-Khi có thay dổi cấu trúc bảng đều cần add lại index
+Không nên dùng index trong các bảng nhỏ. Các bảng  thường xuyên có các hoạt động update, insert không đánh index trên các cột có số lượng lớn giá trị null Khi có thay dổi cấu trúc bảng đều cần add lại index
 
 **các loại index trong mysql**
 
@@ -32,15 +30,13 @@ Khi có thay dổi cấu trúc bảng đều cần add lại index
 
 Hash table là một cấu trúc dữ liệu mà có thể cho phép thực hiện việc map các cặp keys, values. Hash Table sử dụng Hash function để tính toán một index vào một mảng các buckets, từ đó có thể tìm thấy các giá trị mong muốn.
 
-### Sử dụng index trong mysql 
+### Sử dụng index trong mysql
 
 *Tạo index trên một bảng*
 
 ```sql
 CREATE UNIQUE INDEX index_name ON table_name
 ```
-
-
 
 *Tạo index cho cột chỉ rõ trong bảng* 
 
@@ -78,13 +74,7 @@ DROP INDEX index_name
 SELECT * FROM USER_INDEXES;
 ```
 
-
-
-
-
 ## Sử dụng EXPLAIN để tối ưu câu lệnh Msql
-
-
 
 ```
 EXPLAIN SELECT * FROM Country,City WHERE Country.Code=City.CountryCode AND Country.Name LIKE 'A%';
@@ -96,7 +86,6 @@ EXPLAIN SELECT * FROM Country,City WHERE Country.Code=City.CountryCode AND Count
 |  1 | SIMPLE      | Country | eq_ref | PRIMARY       | PRIMARY | 3       | world.City.CountryCode |    1 | Using where |
 +----+-------------+---------+--------+---------------+---------+---------+------------------------+------+-------------+
 2 rows in set (0.00 sec)
-
 ```
 
 **Các thông số quan trọng trong mysql EXPLAIN**
@@ -109,22 +98,20 @@ EXPLAIN SELECT * FROM Country,City WHERE Country.Code=City.CountryCode AND Count
 
 **ref** :  field được sử dụng trong so sánh where
 
-**index** :  nếu scan toàn bộ field thì rất chậm
-**ALL**: 
+**index** :  nếu scan toàn bộ field thì rất chậm 
 
 **possible_keys**: list ra các key có thể optimize key:  Key được chính thức optimizer sử dụng để làm index để tìm kiếm.
 
 **rows**: số dòng mysql sẽ select
 
-**Extra**: thông qua thông số này có thể biết được cách để tối ưu query
-Using where : 
+**Extra**: thông qua thông số này có thể biết được cách để tối ưu query Using where : 
 Using index: 
 Using filesort: 
 Using temporary: trong query có sử dụng distinct thì mysql sẽ phải tạo "bảng tạm" để thực hiện việc này
 Using index for group by: Range checked for each record (index map: N)
 Not exists: 
 
-## Lời kết 
+## Lời kết
 
 Bằng việc nhìn vào id/select_type, chúng ta sẽ biết "trình tự" access vào các bảng như là vào bảng nào để lấy ra gì, sau đó dùng kết quả đó để kết hợp với bảng khác ra sao.
 
