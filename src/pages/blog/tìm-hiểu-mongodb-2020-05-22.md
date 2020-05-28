@@ -395,3 +395,9 @@ Trên đây là một số câu lệnh hay sử dụng trên mongodb các bạn 
 <https://docs.mongodb.com/manual/crud/>
 
 <https://tech.bizflycloud.vn/huong-dan-cach-cai-dat-mongodb-34-tren-centos-7-20180309120039152.htm>
+
+<!--StartFragment-->
+
+<https://stackjava.com/mongodb/uu-nhuoc-diem-cua-mongodb-khi-nao-nen-dung-mongodb.html>
+
+<!--EndFragment-->
