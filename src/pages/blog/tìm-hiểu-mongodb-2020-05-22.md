@@ -88,9 +88,45 @@ Robo3T, Studio 3T, Navicat Premium 12
 
 ## Cài đặt
 
-Mac / Linux
+CentOS 7
 
-Window
+Cài đặt mongodb CentOS Điều kiện tiên quyết
+
+`sudo yum install libcurl openssl`
+
+Cài đặt Cấu hình hệ thống quản lý gói (yum)
+Tạo tệp /etc/yum.repos.d/mongodb-org.repo để bạn có thể cài đặt MongoDB trực tiếp bằng yum
+
+```
+#!/bin/bash
+
+sudo cat <<EOF > /etc/yum.repos.d/mongodb-org.repo
+[mongodb-org-4.2] name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+EOF
+
+sudo chmod 777 /etc/yum.repos.d/mongodb-org.repo
+sudo yum -y update
+sudo yum install -y mongodb-org
+sudo systemctl start mongod
+sudo systemctl enable mongod
+
+sudo cat <<EOF > /etc/security/limits.conf mongod soft nproc 64000
+mongod hard nproc 64000
+mongod soft nofile 64000
+mongod hard nofile 64000
+EOF
+
+sudo sysctl -p
+sudo systemctl restart mongod
+
+sudo yum install -y policycoreutils-python semanage port -a -t mongod_port_t -p tcp 27017
+```
+
+
 
 ## Các lệnh thường sử dụng
 
