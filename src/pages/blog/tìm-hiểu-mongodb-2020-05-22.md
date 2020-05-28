@@ -37,10 +37,11 @@ Các thuật ngữ hay sử dụng trong MongoDB
 
 **Ưu điểm của MongoDB**
 
-* Hiệu suất cao
+* Mã nguồn mở (Open Source)
+* Hiệu suất cao: Tốc độ truy vấn (find, update, insert, delete) của MongoDB nhanh hơn hẳn so với các hệ quản trị cơ sở dữ liệu quan hệ (RDBMS)
 * Tính sẵn sàng cao – Nhân rộng
-* Khả năng mở rộng cao – Sharding
-* Linh hoạt – thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
+* Khả năng mở rộng cao – Sharding : Trong MongoDB có một khái niệm cluster là cụm các node chứa dữ liệu giao tiếp với nhau, khi muốn mở rộng hệ thống ta chỉ cần thêm một node với vào cluster
+* Dữ liệu linh hoạt – MongoDB là document database, dữ liệu lưu dưới dạng JSON, không bị bó buộc về số lượng field, kiểu dữ liệu thêm / xóa trường có ít hoặc không ảnh hưởng đến ứng dụng
 * Không joins
 * Phân phối được
 * Biểu diễn dữ liệu trong JSON hoặc BSON
@@ -50,20 +51,24 @@ Các thuật ngữ hay sử dụng trong MongoDB
 
 **Nhược điểm của MongoDB**
 
-* Giao dịch phức tạp
-* Không có chức năng hoặc thủ tục lưu trữ tồn tại nơi bạn có thể liên kết logic
-* Dữ liệu phình to gây tốn bộ nhớ
+* Giao dịch phức tạp do không hỗ trợ join giống như trên RDBMS nên phải viết function join trong code bằng tay khiến tốc đọ giảm xuống
+* Dữ liệu phình to gây tốn bộ nhớ do dữ liệu lưu dưới dạng key-value, các collection chỉ khác về value do đó key sẽ bị lặp lại gây tốn bộ nhớ
+* MongoDB không có các tính chất ràng buộc như trong RDBMS –> dễ bị làm sai dữ liệu
+* Bị giới hạn kích thước bản ghi: mỗi document không được có kích thước > 16Mb và không mức độ các document con trong 1 document không được > 100
 
 **Tốt cho**
 
 1. Danh mục sản phẩm thương mại điện tử.
 2. Blog và quản lý nội dung.
-3. Phân tích thời gian thực và ghi nhật ký tốc độ cao, bộ nhớ đệm và khả năng mở rộng cao.
-4. Quản lý cấu hình.
-5. Duy trì dữ liệu dựa trên vị trí – Dữ liệu không gian địa lý.
-6. Các trang web di động và mạng xã hội.
-7. Phát triển yêu cầu dữ liệu.
-8. Mục tiêu không chặt chẽ – thiết kế có thể thay đổi theo thời gian.
+3. Quản lý cấu hình.
+4. Duy trì dữ liệu dựa trên vị trí – Dữ liệu không gian địa lý.
+5. Các trang web di động và mạng xã hội.
+6. Phát triển yêu cầu dữ liệu.
+7. Mục tiêu không chặt chẽ – thiết kế có thể thay đổi theo thời gian.
+8. Hệ thống realtime (thời gian thực) yêu cầu phản hồi nhanh
+9. Các hệ thống bigdata với yêu cầu truy vấn nhanh.
+10. Các hệ thống có tần suất write/insert lớn
+11. Sử dụng làm search engine.
 
 **Không tốt cho**
 
@@ -82,6 +87,16 @@ Khi có yêu cầu thêm/sửa/xóa bản ghi, để đảm bảo hiệu suất 
 
 Nguồn: viblo.asia
 
+## Tại sao MongoDB có hiệu năng cao?
+
+MongoDB lưu dữ liệu dạng JSON, khi bạn insert nhiều đối tượng thì nó sẽ là insert một mảng JSON gần như với trường hợp insert 1 đối tượng Dữ liệu trong MongoDB không có sự ràng buộc lẫn nhau như trong RDBMS, khi insert, xóa hay update nó không cần phải mất thời gian kiểm tra xem có thỏa mãn các bảng liên quan như trong RDBMS.
+Dữ liệu trong MongoDB được đánh chỉ mục (đánh index) nên khi truy vấn nó sẽ tìm rất nhanh.
+Khi thực hiện insert, find… MongoDB sẽ khóa các thao tác khác lại, ví dụ khi nó thực hiện find(), trong quá trình find mà có thêm thao tác insert, update thì nó sẽ dừng hết lại để chờ find() xong đã.
+
+Nguồn: [stackjava.com](https://stackjava.com/)
+
+
+
 **Các công cụ quản trị:**
 
 Robo3T, Studio 3T, Navicat Premium 12
@@ -89,10 +104,6 @@ Robo3T, Studio 3T, Navicat Premium 12
 ## Cài đặt
 
 CentOS 7
-
-Cài đặt mongodb CentOS Điều kiện tiên quyết
-
-`sudo yum install libcurl openssl`
 
 ```
 #!/bin/bash
@@ -128,7 +139,7 @@ sudo yum install -y policycoreutils-python semanage port -a -t mongod_port_t -p 
 
 **Allow Remote Access to MongoDB**
 
-Mặt định MongoDB lắng nghe trên `127.0.0.1:27017` để cho phép remote vào mongodb từ bên ngoài vào ta mở tệp cấu hình MongoDB `/etc/mongod.conf` và thay đổi **bindIp** bằng cách thêm các giao diện LAN cần thiết hoặc định cấu hình tệp để liên kết với tất cả các giao diện.
+Mặc định MongoDB lắng nghe trên `127.0.0.1:27017` để cho phép remote vào mongodb từ bên ngoài vào ta mở tệp cấu hình MongoDB `/etc/mongod.conf` và thay đổi **bindIp** bằng cách thêm các giao diện LAN cần thiết hoặc định cấu hình tệp để liên kết với tất cả các giao diện.
 
 ```
 # network interfaces
@@ -246,7 +257,8 @@ db.products.insertMany([{a:1},{a:2}],{});
 Đọc danh sách Document
 
 ```
-
+db.collection.count({<query>}, {<options>})
+db.collection.find( { qty: { $gt: 4 } } ).limit( 1 ).skip(1).pretty()
 db.collection.findOneAndDelete(
    <filter>,
    {
@@ -362,8 +374,24 @@ db.collection.bulkWrite(
 )
 ```
 
+Trên đây là một số câu lệnh hay sử dụng trên mongodb các bạn co thể tham khảo thêm các lệnh khác nâng cao tại trang chủ của MongoDB <https://docs.mongodb.com/manual/>
+
+
+
 
 
 ## Lời kết
 
 ## Tham khảo
+
+<https://docs.mongodb.com/manual/introduction/>
+
+<https://docs.mongodb.com/manual/core/sharded-cluster-components/>
+
+<https://docs.mongodb.com/manual/reference/limits/>
+
+<https://docs.mongodb.com/manual/installation/>
+
+<https://docs.mongodb.com/manual/crud/>
+
+<https://tech.bizflycloud.vn/huong-dan-cach-cai-dat-mongodb-34-tren-centos-7-20180309120039152.htm>
