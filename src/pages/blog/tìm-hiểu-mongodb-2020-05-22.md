@@ -54,7 +54,7 @@ Các thuật ngữ hay sử dụng trong MongoDB
 * Không có chức năng hoặc thủ tục lưu trữ tồn tại nơi bạn có thể liên kết logic
 * Dữ liệu phình to gây tốn bộ nhớ
 
-**Tốt cho***:*
+**Tốt cho**
 
 1. Danh mục sản phẩm thương mại điện tử.
 2. Blog và quản lý nội dung.
@@ -65,7 +65,7 @@ Các thuật ngữ hay sử dụng trong MongoDB
 7. Phát triển yêu cầu dữ liệu.
 8. Mục tiêu không chặt chẽ – thiết kế có thể thay đổi theo thời gian.
 
-**Không tốt cho**:
+**Không tốt cho**
 
 1. Hệ thống giao dịch cao hoặc nơi mô hình dữ liệu được thiết kế trước.
 2. Hệ thống kết hợp chặt chẽ.
@@ -94,9 +94,6 @@ Cài đặt mongodb CentOS Điều kiện tiên quyết
 
 `sudo yum install libcurl openssl`
 
-Cài đặt Cấu hình hệ thống quản lý gói (yum)
-Tạo tệp /etc/yum.repos.d/mongodb-org.repo để bạn có thể cài đặt MongoDB trực tiếp bằng yum
-
 ```
 #!/bin/bash
 
@@ -114,7 +111,8 @@ sudo yum install -y mongodb-org
 sudo systemctl start mongod
 sudo systemctl enable mongod
 
-sudo cat <<EOF > /etc/security/limits.conf mongod soft nproc 64000
+sudo cat <<EOF > /etc/security/limits.conf 
+mongod soft nproc 64000
 mongod hard nproc 64000
 mongod soft nofile 64000
 mongod hard nofile 64000
@@ -128,7 +126,243 @@ sudo yum install -y policycoreutils-python semanage port -a -t mongod_port_t -p 
 
 
 
+**Allow Remote Access to MongoDB**
+
+Mặt định MongoDB lắng nghe trên `127.0.0.1:27017` để cho phép remote vào mongodb từ bên ngoài vào ta mở tệp cấu hình MongoDB `/etc/mongod.conf` và thay đổi **bindIp** bằng cách thêm các giao diện LAN cần thiết hoặc định cấu hình tệp để liên kết với tất cả các giao diện.
+
+```
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1,192.168.0.100 # Enter 0.0.0.0,:: to bind to all interfaces
+```
+
+Khởi động lại mongod để áp dụng sửa đổi:
+
+`sudo systemctl restart mongod`
+
+Kiểm tra lại kết nối
+
+`sudo netstat -tnlp`
+
+```
+Proto Recv-Q Send-Q Local Address       Foreign Address State  PID/Program name
+tcp        0      0 127.0.0.1:27017     0.0.0.0:*       LISTEN 19757/mongod
+tcp        0      0 192.168.0.100:27017 0.0.0.0:*       LISTEN 19757/mongod
+```
+
 ## Các lệnh thường sử dụng
+
+Tạo user
+
+```
+// Cú pháp tạo user
+db.createUser({
+  user: "<name>",
+  pwd: passwordPrompt(),      // Or  "<cleartext password>"
+  customData: { <any information> },
+  roles: [
+    { role: "<role>", db: "<database>" } | "<role>",
+    ...
+  ],
+  authenticationRestrictions: [
+     {
+       clientSource: ["<IP>" | "<CIDR range>", ...],
+       serverAddress: ["<IP>" | "<CIDR range>", ...]
+     },
+     ...
+  ],
+  mechanisms: [ "<SCRAM-SHA-1|SCRAM-SHA-256>", ... ],
+  passwordDigestor: "<server|client>"
+})
+
+// cú pháp xác thực
+db.auth( {
+   user: <username>,
+   pwd: passwordPrompt(),   // Or "<cleartext password>"
+   mechanism: <authentication mechanism>,
+   digestPassword: <boolean>
+} )
+
+db.auth( {
+   user: <username>,
+   pwd: passwordPrompt(),   // Or "<cleartext password>"
+   mechanism: <authentication mechanism>,
+   digestPassword: <boolean>
+} )
+
+use reporting
+db.createUser(
+   {
+     user: "danst",
+     pwd: passwordPrompt(),   // Or  "<cleartext password>"
+     roles: [ { role: "readWrite", db: "reporting" } ],
+     mechanisms: [ "SCRAM-SHA-256" ]
+   }
+)
+
+use products
+db.changeUserPassword("accountUser", "SOh3TbYhx8ypJPxmt1oOfL")
+
+db.grantRolesToUser(
+   "accountUser01",
+   [ "readWrite" , { role: "read", db: "stock" } ],
+   { w: "majority" , wtimeout: 4000 }
+)
+
+
+```
+
+
+
+Tạo Document mới
+
+```
+db.collection.insert(
+   <document or array of documents>,
+   {
+     writeConcern: <document>,
+     ordered: <boolean>
+   }
+)
+
+db.collection.insertMany(
+   [ <document 1> , <document 2>, ... ],
+   {
+      writeConcern: <document>,
+      ordered: <boolean>
+   }
+)
+
+
+db.products.insertOne({a:1},{});
+
+db.products.insertMany([{a:1},{a:2}],{});
+ 
+
+
+```
+
+Đọc danh sách Document
+
+```
+
+db.collection.findOneAndDelete(
+   <filter>,
+   {
+     projection: <document>,
+     sort: <document>,
+     maxTimeMS: <number>,
+     collation: <document>
+   }
+)
+
+db.collection.findOneAndReplace(
+   <filter>,
+   <replacement>,
+   {
+     projection: <document>,
+     sort: <document>,
+     maxTimeMS: <number>,
+     upsert: <boolean>,
+     returnNewDocument: <boolean>,
+     collation: <document>
+   }
+)
+
+db.collection.findOneAndUpdate(
+   <filter>,
+   <update document or aggregation pipeline>, // Changed in MongoDB 4.2
+   {
+     projection: <document>,
+     sort: <document>,
+     maxTimeMS: <number>,
+     upsert: <boolean>,
+     returnNewDocument: <boolean>,
+     collation: <document>,
+     arrayFilters: [ <filterdocument1>, ... ]
+   }
+)
+
+
+```
+
+Cập nhật Document
+
+```
+db.collection.update(
+   <query>,
+   <update>,
+   {
+     upsert: <boolean>,
+     multi: <boolean>,
+     writeConcern: <document>,
+     collation: <document>,
+     arrayFilters: [ <filterdocument1>, ... ],
+     hint:  <document|string>        // Available starting in MongoDB 4.2
+   }
+)
+
+db.books.update(
+   { _id: 1 },
+   {
+     $inc: { stock: 5 },
+     $set: {
+       item: "ABC123",
+       "info.publisher": "2222",
+       tags: [ "software" ],
+       "ratings.1": { by: "xyz", rating: 3 }
+     }
+   }
+)
+
+db.members.updateMany(
+   { },
+   [
+      { $set: { status: "Modified", comments: [ "$misc1", "$misc2" ], lastUpdate: "$$NOW" } },
+      { $unset: [ "misc1", "misc2" ] }
+   ]
+)
+```
+
+Xóa Document
+
+```
+db.collection.remove(
+   <query>,
+   <justOne>
+)
+
+db.collection.remove(
+   <query>,
+   {
+     justOne: <boolean>,
+     writeConcern: <document>,
+     collation: <document>
+   }
+)
+
+
+db.books.remove( { } ) // remove all
+db.products.remove( { qty: { $gt: 20 } } ) // remove product qty match > 20
+```
+
+Sửa đổi toàn bộ
+
+```
+db.collection.bulkWrite(
+   [
+      { insertOne : <document> },
+      { updateOne : <document> },
+      { updateMany : <document> },
+      { replaceOne : <document> },
+      { deleteOne : <document> },
+      { deleteMany : <document> }
+   ]
+)
+```
+
+
 
 ## Lời kết
 
