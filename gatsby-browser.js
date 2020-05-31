@@ -14,14 +14,26 @@ exports.onInitialClientRender = ({ location }) => {
   var App = {};
   App.initialClient = function(){
     console.log('****** initialClient ******');
+
+    $("div.react-pdf__Document, .page-controls-pdf").exists(function () {
+      this.mouseenter(function() {
+        $('.page-controls-pdf').css({opacity: 1})
+      }).mouseleave(function() {
+        $('.page-controls-pdf').css({opacity: 0})
+      });
+    })
+
+
   }
 
+  $.fn.exists = function(callback) {
+    var args = [].slice.call(arguments, 1);
 
+    if (this.length) {
+      callback.call(this, args);
+    }
 
-
-
-
-
-
+    return this;
+  };
   $(document).ready(App.initialClient);
 }
