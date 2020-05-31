@@ -3,12 +3,11 @@ templateKey: blog-post
 title: Tìm hiểu Domain Driven Design (DDD)
 date: 2020-05-11T07:18:26.127Z
 author: Danst
-description: >-
-  Sau một thời gian làm việc với Laravel cũng như project công ty mà mình đang
-  làm thắc mắc tại sao lại khởi tạo cấu trúc thư mục source code như vậy? Anh
-  Tech lead cho mình keyword và thành quả lượm nhặt của em nó. Bài viết này là
-  một self learning của mình còn nhiều thiếu xót các senior đọc góp ý thêm nha
-  mình sẽ bổ sung dần cho hoàn thiện.
+description: Sau một thời gian làm việc với Laravel cũng như project công ty mà
+  mình đang làm thắc mắc tại sao lại khởi tạo cấu trúc thư mục source code như
+  vậy? Anh Tech lead cho mình keyword và thành quả lượm nhặt của em nó. Bài viết
+  này là một self learning của mình còn nhiều thiếu xót các senior đọc góp ý
+  thêm nha mình sẽ bổ sung dần cho hoàn thiện.
 featuredpost: true
 featuredimage: /img/domain_driven_design-ericevans.jpg
 tags:
@@ -77,18 +76,85 @@ DDD mạnh mẽ như vậy nhưng không phải bài toán nào nó cũng phù h
 * Tách domain logic ra khỏi phần khác
 * Chỉ hữu ích để giải quyết các vấn đề phức tạp
 
+
+
+#### Ex  Laravel base on DDD structure
+
+```
+app
+	Console
+		Commands // all command in here
+	Exceptions
+		Classes // define all class exception
+	Http
+		Controllers // controler
+		Middleware // policy
+		Request // request and validatetion request
+		Response // define interface response
+	Providers // service proviver
+bootstrap
+	cache // cache packages, services 
+config // app configure
+database
+domain
+	Abstractions // abstract class
+        Traits
+              Eloquents
+        AbstractApiRepository
+        AbstractAuthenticatable
+        AbstractDomainService
+        AbstractEloquentEntity
+        AbstractEloquentRepository
+	Contracts
+		Libs // interface
+		Repositories // interface
+            Core // core interface
+		domain
+            Contracts
+                Services // interface of service class
+	Entities
+        Eloquents // class entity model
+	Helpers // helper function
+	Services
+		domain
+            Services // implement constracts class 
+                Traits
+		
+frontend
+infrastructure
+	Libs
+        Payment
+        View
+	Persistences
+        Repositories
+        Utils
+public
+resources
+routes
+scripts
+storage
+tests
+vendor
+.env
+.env.ci
+.env.development
+.env.staging
+.env.production
+
+
+
+```
+
 ## Lời kết
 
 \---
 
 ## Tham khảo
 
-Domain-Driven Design - Tackling Complexity in the Heart of Software - Eric Evans <http://dddcommunity.org/>
+\[Book] - Domain-Driven Design - Tackling Complexity in the Heart of Software - Eric Evans 
 
-Domain Driven Design cho mọi người
+<http://dddcommunity.org/>
 
-<https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/>
+[Domain Driven Design cho mọi người](<https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/>)
 
-Khái niệm cơ bản về Domain Driven Design (DDD)
-
-<https://viblo.asia/p/khai-niem-co-ban-ve-domain-driven-design-ddd-Do754qL4KM6>
+[Khái niệm cơ bản về Domain Driven Design (DDD)](<https://viblo.asia/p/khai-niem-co-ban-ve-domain-driven-design-ddd-Do754qL4KM6>)

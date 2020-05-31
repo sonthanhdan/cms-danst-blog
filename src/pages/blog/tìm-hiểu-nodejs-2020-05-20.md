@@ -69,15 +69,11 @@ V8 cung cấp môi trường thời gian chạy trong đó JavaScript thực thi
 
 Mỗi yêu cầu (request) từ phía người dùng được NodeJS coi là một sự kiện (event), chúng được đặt vào một Event Queue (Hàng đợi sự kiện). NodeJS sử dụng quy tắc FIFO (First In First Out), điều này có nghĩa là những yêu cầu đến trước sẽ được xử lý trước.
 
-**Event Loop**
- : Là một vòng lặp vô tận, nó sẽ chuyển các yêu cầu sang Thread Pool (Bể chứa các luồng), đồng thời mỗi yêu cầu sẽ được đăng ký một hàm Callback. Khi một yêu cầu được xử lý xong, hàm Callback tương ứng sẽ được gọi thực thi.
+**Event Loop**  : Là một vòng lặp vô tận, nó sẽ chuyển các yêu cầu sang Thread Pool (Bể chứa các luồng), đồng thời mỗi yêu cầu sẽ được đăng ký một hàm Callback. Khi một yêu cầu được xử lý xong, hàm Callback tương ứng sẽ được gọi thực thi.
 
-**Thread Pool**
- : Là một chương trình viết bằng ngôn ngữ C++, nó hỗ trợ đa luồng (Multi Threads), chính vì vậy tại đây các yêu cầu sẽ được xử lý trên các luồng khác nhau. NodeJS cũng hỗ trợ đa tiến trình (Multi Processes), điều này có nghĩa là chúng có thể được thực thi trên các lõi (Core) khác nhau.
+**Thread Pool**  : Là một chương trình viết bằng ngôn ngữ C++, nó hỗ trợ đa luồng (Multi Threads), chính vì vậy tại đây các yêu cầu sẽ được xử lý trên các luồng khác nhau. NodeJS cũng hỗ trợ đa tiến trình (Multi Processes), điều này có nghĩa là chúng có thể được thực thi trên các lõi (Core) khác nhau.
 
 Khi một yêu cầu được xử lý xong, NodeJS sẽ gọi hàm Callback (Đã được đăng ký cho yêu cầu này) để thực thi nó.
-
-
 
 Một số framework Node.js phổ biến:
 
@@ -95,16 +91,21 @@ Một số framework Node.js phổ biến:
 
 **Sails.js** :  kế thừa mô hình MVC (Model-View-Controller) giống như Laravel được viết dựa trên Express.js 
 
-
-
 **Một số lưu ý cho ứng dụng Node.js an toàn**
 
 * Chống DOS, DDOS hay brute-force mật khẩu
 
 Rate limit request
 
-```
-const express = require('express');const rateLimit = require("express-rate-limit");const app = express();const limiter = rateLimit({  windowMs: 15 * 60 * 1000, // 15 minutes  max: 100 // limit each IP to 100 requests per windowMs});app.use(limiter);
+```javascript
+const express = require('express');
+const rateLimit = require("express-rate-limit");
+const app = express();
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
 ```
 
 * Lọc dữ liệu người dùng gửi lên server

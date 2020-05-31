@@ -1,9 +1,9 @@
 ---
 templateKey: blog-post
 title: BASH cheat sheet
-date: 2020-05-20T13:50:59.981Z
+date: 2020-05-25T08:32:56.832Z
 author: Danst
-description: 'BASH cheat sheet tổng hợp các cú pháp shell, command hay sử dụng trong linux'
+description: BASH cheat sheet tổng hợp các cú pháp shell, command hay sử dụng trong linux
 featuredpost: true
 featuredimage: /img/bash.jpeg
 tags:
@@ -19,9 +19,10 @@ find /dev/folder/ -name abc-*.bin | sort | tail -n1
 
 ## Example: git-merge-branches.sh
 
-\#!/usr/bin/env bash -xe
+```
+#!/usr/bin/env bash -xe
 
-\# Configuration 
+# Configuration 
 
 REPO_DIR=/path/to/your/repository
 
@@ -47,21 +48,21 @@ BRANCHES=(
 
 cd $REPO_DIR;
 
-\# update the repo
+# update the repo
 
 git fetch --prune
 
 git checkout $FEATURE_BRANCH
 
-\# checkout to the target branch
+# checkout to the target branch
 
-if \[ -z "\`git branch --list $TARGET_BRANCH\`" ]; then
+if [ -z "`git branch --list $TARGET_BRANCH`" ]; then
 
    git checkout -b $TARGET_BRANCH
 
 fi
 
-\# merge all branches into the target branch
+# merge all branches into the target branch
 
 for branch in "${BRANCHES\[@]}"
 
@@ -72,76 +73,85 @@ do
 done
 
 echo "DONE SUCCESSFULLY!"
+```
 
 ## Creating branch
 
-$> git fetch
-
-$> git checkout {branch}
+```
+git fetch
+git checkout {branch}
+```
 
 ## Creating branch locally
 
+```
 git checkout {branch}
-
 git pull
-
 git checkout -b {branch}
-
 git push -u origin {branch}
+```
 
 ## **Merge locally for reviewing**
 
+```
 git checkout {branch}
-
 git pull
-
 git fetch
-
-git merge origin/**{branch}** --no-commit --no-ff
+git merge origin/{branch} --no-commit --no-ff
+```
 
 ## Cancel merge after reviewing
 
+```
 git merge --abort
+```
 
 ## List existing branches
 
+```
 git branch --list
+```
 
 ## Fetch from remote
 
+```
 git fetch origin
-
 git checkout --track origin/$branchname
+```
 
 ## Delete a branch
 
+```
 git remote prune origin // delete local remote tracking
-
 git branch -d $branchname // delete local
-
 git push origin --delete :$branchname // delete remote
+```
 
 
 
 ## Rebase your changes on top of the remote master
 
+```
 git pull --rebase upstream master
+```
 
 ## diff
 
+```
 git diff --stat
+```
 
 ## Searching commit
 
+```
 git log --grep="fixes things"  # search in commit messages
-
-git log -S"window.alert"         # search in code
-
-git log -G"foo.*"                     # search in code (regex)
+git log -S"window.alert"       # search in code
+git log -G"foo.*"              # search in code (regex)
+```
 
 ## Basic command
 
-cat, echo, grep, head, tail, cat, find, sort, uniq, awk, sed, seq, wc, curl
+**cat, echo, grep, head, tail, cat, find, sort, uniq, awk, sed, seq, wc, curl**
 
 Tôi liệt kê những option thường dùng khi viết Shell script để mọi người có thể xem ý nghĩa của từng command.
 
@@ -165,9 +175,9 @@ sort -k 2	sắp xếp theo key với key là cột thứ 2 từ trái qua, phân
 
 uniq -c	Hiển thị số dòng duy nhất sau khi đã loại bỏ trùng lặp
 
-wc -l sample.txt	Hiển thị số dòng trong sample.txt
+**wc -l sample.txt**	Hiển thị số dòng trong sample.txt
 
-curl -o file.dat http:...	Lưu trữ nội dung URL chỉ định vào file.dat
+**curl -o** file.dat http:...	Lưu trữ nội dung URL chỉ định vào file.dat
 
 Có thể dùng pipe để chuyển kết quả của command này thành input của command kế tiếp.
 
@@ -433,7 +443,7 @@ $ cat pom.xml | sed -e 's,<.*>,\_\_TAG\_\_,g'
 
 Nếu là biểu thức chính quy khác (regular expression) thì có option để ưu tiên tìm chuỗi ngắn nhất tương ứng với mẫu nhưng vì trong sed không có nên ta làm như sau:
 
-$ cat pom.xml | sed -e 's,<\[^>]*>,\_\_TAG\_\_,g'
+$ cat pom.xml | sed -e 's,<[^>]*>,\_\_TAG\_\_,g'
 
 Lưu ý là sau khi replace 1 file bằng sed vd như file input.txt, không được phép xuất thành file input.txt !
 
@@ -479,23 +489,26 @@ Cách sử dụng thường dùng:
 
 Ví dụ	Ý nghĩa
 
-awk '{print $2}'	In column thứ 2, phân cách bởi khoảng trắng
+```
+awk '{print $2}'	# In column thứ 2, phân cách bởi khoảng trắng
 
-awk '{print $NF}'	In column cuối cùng, phân cách bởi khoảng trắng
+awk '{print $NF}'	# In column cuối cùng, phân cách bởi khoảng trắng
 
-awk '{print $(NF-2)}'	In column thứ 2 từ cuối lên, phân cách bởi khoảng trắng
+awk '{print $(NF-2)}'	# In column thứ 2 từ cuối lên, phân cách bởi khoảng trắng
 
-awk '{sum += $5} END {print sum}'	Xuất tổng giá trị của trường thứ 5 của đầu vào đã nhận
+awk '{sum += $5} END {print sum}'	# Xuất tổng giá trị của trường thứ 5 của đầu vào đã nhận
+```
 
-## related
+## Related
 
-Script search file docuworks
+### Script search file document works
 
-\#!/bin/bash -e
+```
+#!/bin/bash -e
 
 ROOT=$1
 
-\[ -z "$ROOT" ] && echo "Usage: $0 BLOB_ROOT_DIR" && exit 1
+[ -z "$ROOT" ] && echo "Usage: $0 BLOB_ROOT_DIR" && exit 1
 
 DOMAINS=$(ls $ROOT)
 
@@ -507,7 +520,7 @@ FOUND=0
 
 for year in $(ls $ROOT/$domain/$app); do
 
-\[ "$year" = "size" ] && continue
+[ "$year" = "size" ] && continue
 
 for month in $(ls $ROOT/$domain/$app/$year); do
 
@@ -519,7 +532,7 @@ echo $blobid | grep -q "_" && continue
 
 FILE=$ROOT/$domain/$app/$year/$month/$day/$blobid
 
-if \[ "$(hexdump -n4 -e '/1 "%02X"' $FILE)" = "600E8201" ]; then
+if [ "$(hexdump -n4 -e '/1 "%02X"' $FILE)" = "600E8201" ]; then
 
 echo "Found: $FILE";
 
@@ -528,35 +541,29 @@ FOUND=$(($FOUND + 1))
 fi
 
 done
-
 done
-
 done
-
 done
 
 FILES=$(find $ROOT/$domain/$app -type f | wc -l)
-
 echo "$domain/$app total: $FILES found: $FOUND"
-
 done
-
 done
-
-
+```
 
 ## Conditional execution
 
 ```
-git commit && git pushgit commit || echo "Commit failed"
+git commit && git push
+git commit || echo "Commit failed"
 ```
-
-
 
 ## Reading lines
 
 ```
-cat file.txt | while read line; doecho $linedone
+cat file.txt | while read line; do
+echo $line
+done
 ```
 
 ## Arguments
@@ -580,14 +587,6 @@ $!	PID of last background task
 $$	PID of shell
 
 $0	Filename of the shell script
-
-
-
-
-
-
-
-
 
 ## Tài liệu tham khảo
 
