@@ -21,7 +21,7 @@ export default () => {
                                       <ul className="list-docs">
                                           {docs ? docs.map( ({ node: doc }) => (
                                               <li key={doc.id}>
-                                                  <Link to={`/docs/${doc.fields.slug}/`}>
+                                                  <Link to={`${doc.fields.slug}`}>
                                                       {doc.frontmatter.title}
                                                   </Link>
                                               </li>

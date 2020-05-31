@@ -35,7 +35,7 @@ export const DocsPage = ({ data, location, pageContext }) => {
         <Layout style={{background: '#f8fafc;'}}>
             <div className={`react-component-pdf`}>
                 <Document
-                    file={doc.frontmatter.link_pdf}
+                    file={doc.frontmatter.link_pdf.publicURL}
                     onLoadSuccess={onDocumentLoadSuccess}
                     options={{
                         cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
@@ -91,7 +91,11 @@ export const docsPageQuery = graphql`
         title
         description
         author,
-        link_pdf
+        link_pdf {
+            name
+            publicURL
+            relativePath
+      }
       }
     }
   }
