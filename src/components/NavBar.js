@@ -90,20 +90,19 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/stories">
                   Chuyện của dev
               </Link>
+              {/*<Link className="navbar-item" to="/products">*/}
+                {/*Project*/}
+              {/*</Link>*/}
               <div className="navbar-item has-dropdown is-hoverable is-boxed">
                 <a className="navbar-link"
                    onClick={() => this.toggleDropdownActiveClass()}
                 >
-                  Self
+                  Docs
                 </a>
                 <div className={`navbar-dropdown ${this.state.dropdownActiveClass}`}>
-                  <Link className="navbar-item" to="/tags/bookresource">
+                  <Link className="navbar-item" to="/docs">
                     Book & Resource
                   </Link>
-                  <Link className="navbar-item" to="/products">
-                    Project
-                  </Link>
-                
                 </div>
                 
               </div>
