@@ -160,7 +160,7 @@ $menu-label-color: $white-ter
 
 .page-controls-pdf
   position: absolute !important
-  bottom: -40% !important
+  bottom: -40%
   left: 50% !important
   background: white !important
   transform: translateX(-50%)!important
@@ -205,7 +205,9 @@ $menu-label-color: $white-ter
       background-color: #e6e6e6
 
 
-
+@include mobile
+  .page-controls-pdf
+    bottom: 0%
 
 
 
