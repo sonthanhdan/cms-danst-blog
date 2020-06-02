@@ -4,6 +4,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import Layout from 'components/Layout';
 import {graphql} from "gatsby";
 import PropTypes from "prop-types";
+import { isMobile } from "react-device-detect";
 
 
 export const DocsPage = ({ data, location, pageContext }) => {
@@ -42,10 +43,12 @@ export const DocsPage = ({ data, location, pageContext }) => {
                         cMapPacked: true,
                     }}
                     renderMode={`svg`}
+                    className={`document-container`}
                 >
                     <Page pageNumber={pageNumber}
-                          width={700} height={400}
+                          width={isMobile ? 400 : 700} height={isMobile ? 300 : 400}
                           renderMode={`svg`}
+                          className={`page-container`}
                     />
                 </Document>
                 <div className={`page-controls-pdf`}>

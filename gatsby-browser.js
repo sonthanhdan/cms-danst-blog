@@ -16,11 +16,11 @@ exports.onInitialClientRender = ({ location }) => {
     console.log('****** initialClient ******');
 
     $("div.react-pdf__Document, .page-controls-pdf").exists(function () {
-      this.mouseenter(function() {
+      this.on('mouseenter touchstart', function() {
         $('.page-controls-pdf').css({opacity: 1})
-      }).mouseleave(function() {
+      }).on('mouseleave touch', function() {
         $('.page-controls-pdf').css({opacity: 0})
-      });
+      })
     })
 
 
